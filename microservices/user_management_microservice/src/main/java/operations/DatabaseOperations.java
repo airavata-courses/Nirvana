@@ -1,19 +1,12 @@
 package operations;
 
 import CryptoHandler.Crypto;
-import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import staticfields.Constants;
 
 import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.sql.*;
-import java.util.Arrays;
-
-
 public class DatabaseOperations {
 
     Connection conn = Constants.connect();
@@ -51,16 +44,19 @@ public class DatabaseOperations {
     public Boolean logIn(String email, String password, Producer<String, String> producer, String key){
         PreparedStatement st;
         try {
-            st = conn.prepareStatement("Select Password from userdetails where email=?");
+            st = conn.prepareStatement("Select Password,id from userdetails where email=?");
             st.setString(1, email);
             ResultSet rs = st.executeQuery();
             rs.next();
             if(rs.getRow() == 1)
             {
                 String passwordFromDatabase = rs.getString("password");
+                String userId = rs.getString("id");
+                System.out.println("message to api consumer sent for: "+email);
                 if(Crypto.validatePassword(passwordFromDatabase,password))
                 {
                     producer.send(new ProducerRecord<String, String>("API_Consumer",key, "login Successful"));
+                    producer.send(new ProducerRecord<String, String>("session_management_and_logging_service","session_start",email));
                 }
                 else
                 {
@@ -78,5 +74,4 @@ public class DatabaseOperations {
             return false;
         }
     }
-
 }
