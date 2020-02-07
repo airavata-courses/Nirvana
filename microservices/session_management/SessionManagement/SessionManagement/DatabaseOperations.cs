@@ -1,7 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Confluent.Kafka;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SessionManagement
 {
@@ -15,39 +14,66 @@ namespace SessionManagement
             ";password=" + Constants.serverPassword;
         public static MySqlConnection conn = new MySqlConnection(connStr);
 
-        public void insertIntoSessionTable(String user_id)
+        public async void insertIntoSessionTable(string user_email)
         {
             // start_date will be the current timestamp by default
-            // end_date will be 0 by default
+            // end_date will be NULL by default
             // id is autoincrement
+            // the user_id out here is actually the useremail
 
             //process
             //1. enter in session table
             //2. take the session id and enter in log table
+           
 
-            Console.WriteLine("Connecting to MySQL...");
             conn.Open();
             var query = "INSERT INTO sessiondetails(user_id) VALUES(@userid); SELECT LAST_INSERT_ID();";
             using var cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@userid", user_id);
+            cmd.Parameters.AddWithValue("@userid", user_email);
             cmd.Prepare();
             using MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Console.WriteLine("{0}", rdr.GetInt32(0));
+                int sessionId = rdr.GetInt32(0);
+                rdr.Close();
+
+                // send the session id to the api gateway so the user doesnt have to wait longer
+                using (var p = new ProducerBuilder<String, string>(Constants.producerconfig).Build())
+                {
+                    try
+                    {
+                        Console.WriteLine(Constants.generateApiConsumerKey(user_email, "session_service"));
+                        var dr = await p.ProduceAsync(Constants.kafkaAPIGatewayTopic, new Message<string, string> { Key = Constants.generateApiConsumerKey(user_email, "session_service"), Value = sessionId.ToString() });
+                    }
+                    catch (ProduceException<Null, string> e)
+                    {
+                        Console.WriteLine($"Delivery failed: {e.Error.Reason}");
+                    }
+                }
+
+
+                insertIntoLogsTable(sessionId, "user logged in");
+                break;
             }
-            conn.Close();
+            if (conn != null && conn.State == System.Data.ConnectionState.Open)
+            {
+                conn.Close();
+            }
         }
 
-        public void insertIntoLogsTable(int sessionId, String log_action)
+        public void insertIntoLogsTable(int sessionId, string log_action)
         {
-            conn.Open();
+            if (conn != null && conn.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Open();
+            }
             var query = "INSERT INTO logdetails(session_id,log_action) VALUES(@sessionId, @logAction);";
             using var cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@sessionId", sessionId);
             cmd.Parameters.AddWithValue("@logAction", log_action);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public void updateEndDateInSessionTable(DateTime endDate, Int64 sessionId)
