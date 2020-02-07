@@ -1,30 +1,39 @@
 from flask import Blueprint, request, jsonify
 from static.constants import *
-
+import threading,time
+from static.dataPool import setdata,getdata,deletedata
 data_api = Blueprint('data_api', __name__)
+
+def get_data_thread():
+    for message in consumer:
+        print(message)
+        map_key = str(message.key)[2:len(str(message.key)) - 1]
+        setdata(map_key, message.value)
+
 @data_api.route("/retrieveData", methods=['GET'])
 def retrieve_data():
     try:
         # Fetching data from post body
         data = request.json
         headers = request.headers
-        print(headers)
         payload = JwtHandler.decode_auth_token(headers['Authorization'])
         if not payload:
             return jsonify({'error': "JWT invalid"})
 
         generated_map_key = generate_keys_for_user(headers['email'], "retrieve_data_service")
-        GlobalMap[generated_map_key] = "waiting"
         producer.send('retrieve_data_service',
                       key=bytes(generated_map_key, 'utf-8'), value=data)
-
-        while (GlobalMap[generated_map_key] == "waiting"):
-            ## wait for the data to process
-            pass
-
-        print(type(GlobalMap[generated_map_key]))
-        return_message = str(GlobalMap[generated_map_key], 'UTF-8')
-        del GlobalMap[generated_map_key]
-        return jsonify({'ApiCall': return_message}), 500
+        thread1 = threading.Thread(target=get_data_thread)
+        thread1.start()
+        counter = 0
+        while True:
+            if generated_map_key in getdata():
+                consumer_value = getdata()[generated_map_key]
+                deletedata(generated_map_key)
+                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
+            counter += 1
+            if (counter > 6):
+                return jsonify({'ApiCall': "request timeout"}), 500
+            time.sleep(5)
     except Exception as e:
         return jsonify({'Error': str(e)}), 500
