@@ -4,10 +4,9 @@ from kafka import KafkaProducer
 from handlers.crypto_handler import CryptoHandler
 from handlers.jwt_handler import JwtHandler
 from flask import Blueprint, request, jsonify
-from kafka.admin import KafkaAdminClient, NewTopic
+from kafka.admin import KafkaAdminClient
 jwthandler = JwtHandler()
 
-GlobalMap = {}
 KAFKA_HOSTS = ['localhost:9092']
 KAFKA_VERSION = (0, 10)
 
