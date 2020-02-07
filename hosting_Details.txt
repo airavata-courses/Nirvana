@@ -1,0 +1,33 @@
+python packages to be installed:
+pymongo
+pyjwt
+flask
+flask-cors
+paslib
+
+
+heroku constaints: - POSTGRES databse (usermanagement)
+1. 10,000 rows only
+2. 20 connections only
+
+remotemysql.com - MYSQL database (sessionmanagement)
+1. 100mb data
+
+
+
+SQL queries for MYSQL
+
+CREATE TABLE logdetails (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    log_action varchar(500) NOT NULL,
+    session_id int,
+    session_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (session_id) REFERENCES sessiondetails(id)
+);
+
+CREATE TABLE sessiondetails (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    end_date TIMESTAMP DEFAULT NULL,
+    user_id int NOT NULL
+);
