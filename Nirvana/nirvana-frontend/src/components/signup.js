@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,8 +10,13 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import PropTypes from 'prop-types';
+import axios from 'axios';
+import {api_gateway_url} from '../constants/constants'
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -24,7 +29,7 @@ function Copyright() {
     </Typography>
   );
 }
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -42,11 +47,60 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
-export default function SignUp() {
-  const classes = useStyles();
-  return (
-    <Container component="main" maxWidth="xs">
+});
+
+// const classes = useStyles();
+  
+class SignUp extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      first_name: '',
+      last_name: ''
+    };
+
+    this.userSignup = this.userSignup.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+
+  
+  userSignup(e) {
+    e.preventDefault();
+    const payload = this.state;
+    console.log(payload)
+    axios.post(api_gateway_url + 'signUpUser', payload).
+      then(res => {
+        console.log(res)
+        if (res.data["ApiCall"] == 'Signup Sucessful') {
+          
+          // Route to the dashboard!............................................
+          // Edit here later
+          this.props.history.push('/');
+
+        }
+      })
+
+    this.props.history.push('/');
+
+  }
+  handleChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -61,6 +115,7 @@ export default function SignUp() {
               <TextField
                 autoComplete="fname"
                 name="firstName"
+                onChange={this.handleChange}
                 variant="outlined"
                 required
                 fullWidth
@@ -74,6 +129,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
+                onChange={this.handleChange}
                 id="lastName"
                 label="Last Name"
                 name="lastName"
@@ -84,6 +140,7 @@ export default function SignUp() {
               <TextField
                 variant="outlined"
                 required
+                onChange={this.handleChange}
                 fullWidth
                 id="email"
                 label="Email Address"
@@ -97,6 +154,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 name="password"
+                onChange={this.handleChange}
                 label="Password"
                 type="password"
                 id="password"
@@ -115,7 +173,9 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
+            onClick = {this.userSignup}
             className={classes.submit}
+            // onClick = 
           >
             Sign Up
           </Button>
@@ -132,5 +192,11 @@ export default function SignUp() {
         <Copyright />
       </Box>
     </Container>
-  );
+    )
+  }
 }
+SignUp.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(useStyles)(SignUp);
+
