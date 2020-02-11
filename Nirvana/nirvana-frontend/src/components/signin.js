@@ -78,9 +78,9 @@ class SignIn extends Component {
         console.log(res)
         if (res.data["ApiCall"] === 'login Successful') {
           cookie.save('jwt', res.data['jwt'])
-          // Route to the dashboard!............................................
-          // Edit here later
-
+          cookie.save('email', this.state.email)
+          this.props.history.push('/dashboard');
+          // cookie.save('session_id', res.data['session_id'])
         }
 
       })
