@@ -15,6 +15,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import DatePickers from './datapicker';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import cookie from 'react-cookies'
+
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -97,6 +100,11 @@ export default function PrimarySearchAppBar() {
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
+    cookie.remove("jwt");
+    cookie.remove('email');
+    cookie.remove('session_id');
+    // props.history.push("/");
+    window.location.href = '/'
   };
 
   const handleMobileMenuOpen = event => {
@@ -114,8 +122,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
 
@@ -164,31 +171,19 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+          
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
           </Typography>
           
           <DatePickers/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
+            <IconButton aria-label="" color="inherit">
+              <Badge color="secondary">
+                <AccessTimeIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            
             <IconButton
               edge="end"
               aria-label="account of current user"

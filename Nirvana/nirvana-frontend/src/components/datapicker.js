@@ -8,7 +8,7 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { TextField } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import cookie from 'react-cookies'
 import axios from 'axios';
 import { api_gateway_url } from "../constants/constants";
@@ -61,73 +61,73 @@ const handleDataRetrieval = ()=>{
     // insert session id here
     // session_id: session_id
   }
-  console.log(payload)
-  // axios.get(api_gateway_url +"retrieveData", {headers, params:payload}).
-  // then(res=>{
-  //   setWeather(res)
-  //   console.log(res)
-  // })
-  const res = {
-    "weather":{
-      "1580922000.0": {
-        "temperature": 65.14,
-        "precipitation_intensity": 0,
-        "humidity": 0.79,
-        "pressure": 1015.1,
-        "wind_speed": 4.17,
-        "visibility": 10,
-        "dew_point": 58.3,
-        "summary": "Mostly Cloudy"
-      },
-      "1581008400.0": {
-        "temperature": 66.44,
-        "precipitation_intensity": 0,
-        "humidity": 0.73,
-        "pressure": 1017,
-        "wind_speed": 3.26,
-        "visibility": 10,
-        "dew_point": 57.52,
-        "summary": "Clear"
-      },
-      "1581094800.0": {
-        "temperature": 67.89,
-        "precipitation_intensity": 0,
-        "humidity": 0.69,
-        "pressure": 1018.7,
-        "wind_speed": 4.72,
-        "visibility": 10,
-        "dew_point": 57.35,
-        "summary": "Overcast"
-      },
-      "1581181200.0": {
-        "temperature": 67.96,
-        "precipitation_intensity": 0,
-        "humidity": 0.58,
-        "pressure": 1019.6,
-        "wind_speed": 7.29,
-        "visibility": 10,
-        "dew_point": 52.62,
-        "summary": "Overcast"
-      },
-      "1581267600.0": {
-        "temperature": 65.41,
-        "precipitation_intensity": 0,
-        "humidity": 0.5,
-        "pressure": 1017.9,
-        "wind_speed": 4.28,
-        "visibility": 10,
-        "dew_point": 46.27,
-        "summary": "Clear"
-      }
-    },
-    "latitude": 22.5726,
-    "longitude": 88.3639,
-    "center": {
-      lat: 22.5726,
-      lng: 88.3639
-    }
-  }
-  setWeather(res)
+  console.log(payload);
+  axios.get(api_gateway_url +"retrieveData", {headers, params:payload}).
+  then(res=>{
+    console.log(res)
+    setWeather(res.data)
+  })
+  // const res = {
+  //   "weather":{
+  //     "1580922000.0": {
+  //       "temperature": 65.14,
+  //       "precipitation_intensity": 0,
+  //       "humidity": 0.79,
+  //       "pressure": 1015.1,
+  //       "wind_speed": 4.17,
+  //       "visibility": 10,
+  //       "dew_point": 58.3,
+  //       "summary": "Mostly Cloudy"
+  //     },
+  //     "1581008400.0": {
+  //       "temperature": 66.44,
+  //       "precipitation_intensity": 0,
+  //       "humidity": 0.73,
+  //       "pressure": 1017,
+  //       "wind_speed": 3.26,
+  //       "visibility": 10,
+  //       "dew_point": 57.52,
+  //       "summary": "Clear"
+  //     },
+  //     "1581094800.0": {
+  //       "temperature": 67.89,
+  //       "precipitation_intensity": 0,
+  //       "humidity": 0.69,
+  //       "pressure": 1018.7,
+  //       "wind_speed": 4.72,
+  //       "visibility": 10,
+  //       "dew_point": 57.35,
+  //       "summary": "Overcast"
+  //     },
+  //     "1581181200.0": {
+  //       "temperature": 67.96,
+  //       "precipitation_intensity": 0,
+  //       "humidity": 0.58,
+  //       "pressure": 1019.6,
+  //       "wind_speed": 7.29,
+  //       "visibility": 10,
+  //       "dew_point": 52.62,
+  //       "summary": "Overcast"
+  //     },
+  //     "1581267600.0": {
+  //       "temperature": 65.41,
+  //       "precipitation_intensity": 0,
+  //       "humidity": 0.5,
+  //       "pressure": 1017.9,
+  //       "wind_speed": 4.28,
+  //       "visibility": 10,
+  //       "dew_point": 46.27,
+  //       "summary": "Clear"
+  //     }
+  //   },
+  //   "latitude": 22.5726,
+  //   "longitude": 88.3639,
+  //   "center": {
+  //     lat: 22.5726,
+  //     lng: 88.3639
+  //   }
+  // }
+  // setWeather(res)
   
 }
 
@@ -141,7 +141,7 @@ const handleDataRetrieval = ()=>{
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
     
     <TextField id="outlined-basic" 
-      label="Oulined" 
+      label="Search City" 
       onChange={updateCityName}
       variant="outlined"/>
 
@@ -170,7 +170,9 @@ const handleDataRetrieval = ()=>{
             'aria-label': 'change date',
           }}
         />
-        <button onClick={handleDataRetrieval}>Submit</button>
+        <Button variant="contained" color="primary" onClick={handleDataRetrieval}>
+          Submit
+        </Button>
       </Grid>
     </MuiPickersUtilsProvider>
   );
