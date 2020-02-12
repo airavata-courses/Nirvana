@@ -33,9 +33,9 @@ def call_login_microservice():
                             consumer_value2 = getdata()[generated_map_key2]
                             deletedata(generated_map_key2)
                             return jsonify({'jwt': str(jwt_token, 'utf-8'),
-                                            'sessionId': str(consumer_value2, 'utf-8')}), 500
+                                            'sessionId': str(consumer_value2, 'utf-8'), 'ApiCall': "login Successful"}), 200
                 else:
-                    return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
+                    return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 200
 
             counter += 1
             if (counter > 6):

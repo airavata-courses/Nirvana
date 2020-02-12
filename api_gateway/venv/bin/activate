@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/raj/Desktop/Data/Nirvana/Nirvana/api_gateway/venv"
+VIRTUAL_ENV="/home/raj/Desktop/Data/Nirvana/API_Gateway_Service_Branch/Nirvana/api_gateway/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

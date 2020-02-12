@@ -14,7 +14,7 @@ def get_data_thread():
 def retrieve_data():
     try:
         # Fetching data from post body
-        data = request.json
+        data = request.args
         headers = request.headers
         payload = JwtHandler.decode_auth_token(headers['Authorization'])
         if not payload:
@@ -30,7 +30,7 @@ def retrieve_data():
             if generated_map_key in getdata():
                 consumer_value = getdata()[generated_map_key]
                 deletedata(generated_map_key)
-                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
+                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 200
             counter += 1
             if (counter > 6):
                 return jsonify({'ApiCall': "request timeout"}), 500

@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/raj/Desktop/Data/Nirvana/Nirvana/api_gateway/venv"
+set -gx VIRTUAL_ENV "/home/raj/Desktop/Data/Nirvana/API_Gateway_Service_Branch/Nirvana/api_gateway/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
