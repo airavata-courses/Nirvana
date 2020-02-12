@@ -1,4 +1,4 @@
-#!/home/raj/Desktop/Data/Nirvana/Nirvana/api_gateway/venv/bin/python
+#!/home/raj/Desktop/Data/Nirvana/API_Gateway_Service_Branch/Nirvana/api_gateway/venv/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip3'
 __requires__ = 'pip==19.0.3'
 import re

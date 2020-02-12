@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/home/raj/Desktop/Data/Nirvana/Nirvana/api_gateway/venv"
+setenv VIRTUAL_ENV "/home/raj/Desktop/Data/Nirvana/API_Gateway_Service_Branch/Nirvana/api_gateway/venv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
