@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/raj/Desktop/Data/Nirvana/Nirvana/microservices/data_retrieval/venv"
+set -gx VIRTUAL_ENV "/home/raj/Desktop/Data/Nirvana/Data_Retrieval_Service_Branch/Nirvana/microservices/data_retrieval/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

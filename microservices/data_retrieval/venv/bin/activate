@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/raj/Desktop/Data/Nirvana/Nirvana/microservices/data_retrieval/venv"
+VIRTUAL_ENV="/home/raj/Desktop/Data/Nirvana/Data_Retrieval_Service_Branch/Nirvana/microservices/data_retrieval/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
