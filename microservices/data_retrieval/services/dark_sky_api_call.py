@@ -16,11 +16,18 @@ def city_name_to_coordinates(name):
     response = requests.get(url, params=data)
     lat , lon = json.loads(response.text)[0]['lat'] , json.loads(response.text)[0]['lon']
     return lat, lon
-
-
 def api_call_to_dark_sky(array_of_dates, latitude, longitude):
     darksky = DarkSky(API_KEY_DARKSKY)
-    return_data = {}
+    return_data = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "center": {
+            "lat": latitude,
+            "lng": longitude
+        },
+        "weather": {
+        }
+    }
     for t in array_of_dates:
         forecast = darksky.get_time_machine_forecast(
             latitude, longitude,
@@ -39,9 +46,8 @@ def api_call_to_dark_sky(array_of_dates, latitude, longitude):
                 'visibility': forecast.currently.visibility,
                 'dew_point': forecast.currently.dew_point,
                 'summary': forecast.currently.summary}
-        return_data[t.timestamp()] = data
+        return_data['weather'][t.timestamp()] = data
     return return_data
-
 ## step 2
 def darksky_api_call(name,from_date, to_date):
     array_of_dates = []
@@ -49,20 +55,17 @@ def darksky_api_call(name,from_date, to_date):
         ## get current data
         now = datetime.datetime.now()
         array_of_dates = generate_dates(now,now) ## pass both current date
-    elif( from_date!= None and (not to_date ) ):
-        ## set date to be searched as from_date
+    elif( from_date!= None and (not to_date ) )        ## set date to be searched as from_date
         array_of_dates = generate_dates(datetime.datetime(from_date["year"], from_date["month"], from_date["day"],12) ,
                        datetime.datetime(from_date["year"], from_date["month"], from_date["day"],12)) ## pass both from date
     else:
         ## range of date
         array_of_dates = generate_dates(datetime.datetime(from_date["year"], from_date["month"], from_date["day"], 12),
                        datetime.datetime(to_date["year"], to_date["month"], to_date["day"], 12))  ## pass both from date
-
     ## api call to darksky
     lat, lon = city_name_to_coordinates(name)
     return api_call_to_dark_sky(array_of_dates, lat, lon)
-
-
+    
 def generate_dates(from_date, to_date):
     delta = to_date - from_date  # as timedelta
     array_of_dates = []
@@ -70,4 +73,3 @@ def generate_dates(from_date, to_date):
         day = from_date + datetime.timedelta(days=i)
         array_of_dates.append(day)
     return array_of_dates
-

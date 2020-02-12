@@ -14,11 +14,7 @@ def get_data_thread():
 def retrieve_data():
     try:
         # Fetching data from post body
-<<<<<<< Updated upstream
-        data = request.args
-=======
         data = request.json
->>>>>>> Stashed changes
         headers = request.headers
         payload = JwtHandler.decode_auth_token(headers['Authorization'])
         if not payload:
@@ -34,28 +30,22 @@ def retrieve_data():
             if generated_map_key in getdata():
                 consumer_value = getdata()[generated_map_key]
                 deletedata(generated_map_key)
-<<<<<<< Updated upstream
-                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 200
-=======
                 return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
->>>>>>> Stashed changes
             counter += 1
             if (counter > 6):
                 return jsonify({'ApiCall': "request timeout"}), 500
             time.sleep(5)
     except Exception as e:
         return jsonify({'Error': str(e)}), 500
-<<<<<<< Updated upstream
-=======
 
 @data_api.route("/retrieveDataViz", methods=['GET'])
 def retrieve_data_viz():
     try:
         data = request.json
         headers = request.headers
-        # payload = JwtHandler.decode_auth_token(headers['Authorization'])
-        # if not payload:
-        #     return jsonify({'error': "JWT invalid"})
+        payload = JwtHandler.decode_auth_token(headers['Authorization'])
+        if not payload:
+            return jsonify({'error': "JWT invalid"})
 
         topic = "retrieve_data_viz_service"
         generated_map_key = generate_keys_for_user(headers['email'], topic)
@@ -78,4 +68,3 @@ def retrieve_data_viz():
 
 
 
->>>>>>> Stashed changes
