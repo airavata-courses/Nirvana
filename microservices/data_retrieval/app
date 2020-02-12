@@ -18,14 +18,15 @@ for message_in_consumer in consumer:
     message = json.loads(message)
     print(message)
     city_name = message['city_name']
-    from_date = message['from_date']
-    to_date = message['to_date']
-    print(city_name, from_date, to_date)
+    from_date = json.loads(message['from_date'])
+    to_date = json.loads(message['to_date'])
+
     print("******* data to send ************")
     data_to_send = darksky_api_call(city_name,from_date,to_date)
+    data_to_send = json.dumps(data_to_send)
     print(data_to_send)
     producer.send("API_Consumer",key=message_in_consumer.key, value = data_to_send)
-    # print(message)
+    print(message)
 
 
 

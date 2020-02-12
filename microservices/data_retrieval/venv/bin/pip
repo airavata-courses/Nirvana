@@ -1,4 +1,4 @@
-#!/home/raj/Desktop/Data/Nirvana/Nirvana/microservices/data_retrieval/venv/bin/python
+#!/home/raj/Desktop/Data/Nirvana/Data_Retrieval_Service_Branch/Nirvana/microservices/data_retrieval/venv/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip'
 __requires__ = 'pip==19.0.3'
 import re
