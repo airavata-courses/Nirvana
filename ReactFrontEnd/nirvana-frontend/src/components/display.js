@@ -28,7 +28,7 @@ export default function Display() {
 
 
 
-                <Grid item xs={4} sm={4}>
+                <Grid item xs={6} sm={6}>
                     <Paper className={classes.paper}>xs=6 sm=3</Paper>
                 </Grid>
                 <Grid item xs={6} sm={6}>
@@ -38,9 +38,7 @@ export default function Display() {
                     center = {dailyWeather['center']}
                     />
                 </Grid>
-                <Grid item xs={2} sm={2}>
-                    <Paper className={classes.paper}>xs=6 sm=3</Paper>
-                </Grid>
+                
             </Grid>
         </div>
     );
