@@ -46,7 +46,7 @@ def api_call_to_dark_sky(array_of_dates, latitude, longitude):
                 'visibility': forecast.currently.visibility,
                 'dew_point': forecast.currently.dew_point,
                 'summary': forecast.currently.summary}
-        return_data['weather'][t.timestamp()] = data
+        return_data['weather'][str(t.day) + "-" + str(t.strftime("%b")) + "-" + str(t.year)] = data
     return return_data
 ## step 2
 def darksky_api_call(name,from_date, to_date):

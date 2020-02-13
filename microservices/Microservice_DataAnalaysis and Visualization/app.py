@@ -57,8 +57,10 @@ for message_in_consumer in consumer:
         message = json.loads(message)
 
         city_name = message['city_name']
-        from_date = message['from_date']
-        to_date = message['to_date']
+        from_date = json.loads(message['from_date'])
+        to_date = json.loads(message['to_date'])
+        message["records"] = json.loads(message["records"])
+        print(message['records'])
         temprature_recordings = message['records']['temprature']
         precipitation_recordings = message['records']['precipitation']
         humidity_recordings = message['records']['humidity']
@@ -74,3 +76,4 @@ for message_in_consumer in consumer:
 
         producer.send("API_Consumer",
                       key=bytes(key, 'utf-8'), value=data_to_send)
+

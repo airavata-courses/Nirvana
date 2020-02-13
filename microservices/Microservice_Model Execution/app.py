@@ -43,13 +43,13 @@ def getFutureData(latitude,longitude):
                 'visibility': forecast.currently.visibility,
                 'dew_point': forecast.currently.dew_point,
                 'summary': forecast.currently.summary}
-        return_data['weather'][t.timestamp()] = data
+        return_data['weather'][str(t.day) + "-" + str(t.strftime("%b")) + "-" + str(t.year)] = data
     producer.send("API_Consumer", key=message_in_consumer.key, value=return_data)
 
 for message_in_consumer in consumer:
     message = str(message_in_consumer.value, 'utf-8')
     message = json.loads(message)
+    print(message)
     lat = message["lat"]
     lon = message["lon"]
     getFutureData(lat,lon)
-

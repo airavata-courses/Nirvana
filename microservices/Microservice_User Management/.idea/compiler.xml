@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Microservice_User Management" />
         <module name="user_management_microservice" />
+        <module name="Microservice_User Management" />
       </profile>
     </annotationProcessing>
   </component>

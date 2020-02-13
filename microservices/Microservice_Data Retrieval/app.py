@@ -20,7 +20,6 @@ for message_in_consumer in consumer:
     data_to_send = json.dumps(data_to_send)
     print(data_to_send)
     producer.send("API_Consumer", key=message_in_consumer.key, value=data_to_send)
-
 '''
 1. convert city name to lat long
 2. if to_date == null that means only one date is asked for

@@ -10,6 +10,7 @@ def call_login_microservice():
         payload = JwtHandler.decode_auth_token(headers['Authorization'])
         if not payload:
             return jsonify({'error': "JWT invalid"}), 500
+        data["session_id"] = headers["session_id"]
         producer.send('session_management_and_logging_service', key=bytes("user_log", 'utf-8'), value=data)
         return jsonify({'ApiCall': "logged"}), 200
     except Exception as e:
