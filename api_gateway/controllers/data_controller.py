@@ -66,5 +66,33 @@ def retrieve_data_viz():
     except Exception as e:
         return jsonify({'Error': str(e)}), 500
 
+@data_api.route("/retrieveDataFuture", methods=['GET'])
+def retrieve_data_future():
+    try:
+        data = request.json
+        headers = request.headers
+        # payload = JwtHandler.decode_auth_token(headers['Authorization'])
+        # if not payload:
+        #     return jsonify({'error': "JWT invalid"})
+
+        topic = "retrieve_data_future_service"
+        generated_map_key = generate_keys_for_user(headers['email'], topic)
+        producer.send(topic,
+                      key=bytes(generated_map_key, 'utf-8'), value=data)
+        thread1 = threading.Thread(target=get_data_thread)
+        thread1.start()
+        counter = 0
+        while True:
+            if generated_map_key in getdata():
+                consumer_value = getdata()[generated_map_key]
+                deletedata(generated_map_key)
+                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
+            counter += 1
+            if (counter > 6):
+                return jsonify({'ApiCall': "request timeout"}), 500
+            time.sleep(5)
+    except Exception as e:
+        return jsonify({'Error': str(e)}), 500
+
 
 
