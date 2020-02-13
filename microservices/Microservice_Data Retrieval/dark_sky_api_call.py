@@ -55,7 +55,7 @@ def darksky_api_call(name,from_date, to_date):
         ## get current data
         now = datetime.datetime.now()
         array_of_dates = generate_dates(now,now) ## pass both current date
-    elif( from_date!= None and (not to_date ) )        ## set date to be searched as from_date
+    elif( from_date!= None and (not to_date ) ):        ## set date to be searched as from_date
         array_of_dates = generate_dates(datetime.datetime(from_date["year"], from_date["month"], from_date["day"],12) ,
                        datetime.datetime(from_date["year"], from_date["month"], from_date["day"],12)) ## pass both from date
     else:
