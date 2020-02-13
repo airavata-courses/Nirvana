@@ -30,7 +30,7 @@ def retrieve_data():
             if generated_map_key in getdata():
                 consumer_value = getdata()[generated_map_key]
                 deletedata(generated_map_key)
-                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
+                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 200
             counter += 1
             if (counter > 6):
                 return jsonify({'ApiCall': "request timeout"}), 500
@@ -58,7 +58,7 @@ def retrieve_data_viz():
             if generated_map_key in getdata():
                 consumer_value = getdata()[generated_map_key]
                 deletedata(generated_map_key)
-                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
+                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 200
             counter += 1
             if (counter > 6):
                 return jsonify({'ApiCall': "request timeout"}), 500
@@ -71,9 +71,9 @@ def retrieve_data_future():
     try:
         data = request.json
         headers = request.headers
-        # payload = JwtHandler.decode_auth_token(headers['Authorization'])
-        # if not payload:
-        #     return jsonify({'error': "JWT invalid"})
+        payload = JwtHandler.decode_auth_token(headers['Authorization'])
+        if not payload:
+            return jsonify({'error': "JWT invalid"})
 
         topic = "retrieve_data_future_service"
         generated_map_key = generate_keys_for_user(headers['email'], topic)
@@ -86,7 +86,7 @@ def retrieve_data_future():
             if generated_map_key in getdata():
                 consumer_value = getdata()[generated_map_key]
                 deletedata(generated_map_key)
-                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 500
+                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 200
             counter += 1
             if (counter > 6):
                 return jsonify({'ApiCall': "request timeout"}), 500
