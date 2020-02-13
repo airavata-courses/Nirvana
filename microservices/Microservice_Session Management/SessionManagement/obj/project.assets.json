@@ -6298,11 +6298,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nahus\\OneDrive\\Documents\\GitHub\\Nirvana\\microservices\\session_management\\SessionManagement\\SessionManagement\\SessionManagement.csproj",
+      "projectUniqueName": "C:\\Users\\nahus\\OneDrive\\Documents\\GitHub\\Nirvana\\microservices\\Microservice_Session Management\\SessionManagement\\SessionManagement.csproj",
       "projectName": "SessionManagement",
-      "projectPath": "C:\\Users\\nahus\\OneDrive\\Documents\\GitHub\\Nirvana\\microservices\\session_management\\SessionManagement\\SessionManagement\\SessionManagement.csproj",
+      "projectPath": "C:\\Users\\nahus\\OneDrive\\Documents\\GitHub\\Nirvana\\microservices\\Microservice_Session Management\\SessionManagement\\SessionManagement.csproj",
       "packagesPath": "C:\\Users\\nahus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nahus\\OneDrive\\Documents\\GitHub\\Nirvana\\microservices\\session_management\\SessionManagement\\SessionManagement\\obj\\",
+      "outputPath": "C:\\Users\\nahus\\OneDrive\\Documents\\GitHub\\Nirvana\\microservices\\Microservice_Session Management\\SessionManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nahus\\AppData\\Roaming\\NuGet\\NuGet.Config",

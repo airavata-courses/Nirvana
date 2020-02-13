@@ -38,6 +38,11 @@ namespace SessionManagement
                                     JObject json = JObject.Parse(message.Value.ToString());
                                     databaseOperations.insertIntoLogsTable(Int32.Parse(json.GetValue("session_id").ToString()), json.GetValue("user_action").ToString());
                                 }
+                                else if (message.Key.ToString().Contains("user_logout"))
+                                {
+                                    JObject json = JObject.Parse(message.Value.ToString());
+                                    databaseOperations.updateEndDateInSessionTable(Int32.Parse(json.GetValue("session_id").ToString()));
+                                }
                             }
                             catch (Exception e)
                             {

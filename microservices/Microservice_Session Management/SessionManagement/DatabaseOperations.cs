@@ -76,8 +76,9 @@ namespace SessionManagement
             conn.Close();
         }
 
-        public void updateEndDateInSessionTable(DateTime endDate, Int64 sessionId)
+        public void updateEndDateInSessionTable(Int64 sessionId)
         {
+            DateTime endDate = DateTime.Now;
             string query = "UPDATE sessiondetails SET end_date=@endDate,WHERE id=@sessionId";
             using var cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@endDate", endDate);

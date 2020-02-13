@@ -23,6 +23,9 @@ def retrieve_data():
         generated_map_key = generate_keys_for_user(headers['email'], "retrieve_data_service")
         producer.send('retrieve_data_service',
                       key=bytes(generated_map_key, 'utf-8'), value=data)
+        producer.send('session_management_and_logging_service', key=bytes("user_log", 'utf-8'), value={	
+            "user_action" : "User retrived data",
+	        "session_id" : str(headers["session_id"])})
         thread1 = threading.Thread(target=get_data_thread)
         thread1.start()
         counter = 0
@@ -51,6 +54,10 @@ def retrieve_data_viz():
         generated_map_key = generate_keys_for_user(headers['email'], topic)
         producer.send(topic,
                       key=bytes(generated_map_key, 'utf-8'), value=data)
+        producer.send('session_management_and_logging_service', key=bytes("user_log", 'utf-8'), value={	
+            "user_action" : "User retrived data viz",
+	        "session_id" : str(headers["session_id"])})
+
         thread1 = threading.Thread(target=get_data_thread)
         thread1.start()
         counter = 0
@@ -79,6 +86,9 @@ def retrieve_data_future():
         generated_map_key = generate_keys_for_user(headers['email'], topic)
         producer.send(topic,
                       key=bytes(generated_map_key, 'utf-8'), value=data)
+        producer.send('session_management_and_logging_service', key=bytes("user_log", 'utf-8'), value={	
+            "user_action" : "User retrived data future",
+	        "session_id" : str(headers["session_id"])})
         thread1 = threading.Thread(target=get_data_thread)
         thread1.start()
         counter = 0
