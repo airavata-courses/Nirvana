@@ -10,12 +10,11 @@ import {
 } from '@material-ui/pickers';
 import { TextField, Button } from '@material-ui/core';
 import cookie from 'react-cookies'
-import axios from 'axios';
+import axios, * as others from 'axios';
 import { api_gateway_url } from "../constants/constants";
 export default function DatePickers() {
-
-  const [from_date, setFromDate] = useState('');
-  const [to_date, setToDate] = useState('');
+  const [from_date, setFromDate] = useState(new Date());
+  const [to_date, setToDate] = useState(new Date());
   const [city_name, setCityName] = useState('');
   const [dailyWeather, setWeather] = useContext(WeatherContext);
 
@@ -33,109 +32,139 @@ const updateCityName = e => {
   setCityName(e.target.value);
 }
 
+
+let lat = 0;
+let lon = 0;
+let temprature  = [1];
+let precipitation = [1];
+let humidity = [1];
+let windSpeed = [1];
+const getData = (headers, payload, new_from_date, new_to_date)=>{
+  fetch(api_gateway_url + 'retrieveData', {
+    method: 'POST',
+    headers: headers,
+    body:JSON.stringify(payload),
+    async:true
+  }).then(response => {
+    if (response.ok) {
+      response.json().then(json => {
+        console.log("response 1 data")
+        console.log(json)
+        lat = json.latitude
+        lon = json.longitude
+        // make array of data
+        setWeather(json)
+      });
+      let dataToSend = {
+        from_date: JSON.stringify({
+          year: new_from_date.getFullYear(),
+          month: new_from_date.getMonth()+1,
+          day: new_from_date.getDate()
+        }),
+        to_date: JSON.stringify({
+          year: new_to_date.getFullYear(),
+          month: new_to_date.getMonth()+1,
+          day: new_to_date.getDate()
+        }),
+        city_name: city_name,
+        records: JSON.stringify({
+          temprature : temprature,
+          precipitation : precipitation,
+          humidity : humidity,
+          wind_speed : windSpeed
+        })
+      }
+      getDataFuture(headers,{"lat":lat, "lon":lon},dataToSend)
+
+    }
+    else {
+      console.log("server error -- response 1")
+    }
+  })
+}
+
+
+const getDataViz = (headers, payload)=>{
+  fetch(api_gateway_url + 'retrieveDataViz', {
+    method: 'POST',
+    headers: headers,
+    body:JSON.stringify(payload),
+    async:true
+  }).then(response => {
+    if (response.ok) {
+      response.json().then(json => {
+        console.log("response 3 data")
+        console.log(json)
+        // make array of data
+      });
+    }
+    else {
+      console.log("server error -- response 3")
+    }
+  })
+}
+
+
+const getDataFuture = (headers, payload,payload_for_viz) => {
+  console.log(payload)
+  fetch(api_gateway_url + 'retrieveDataFuture', {
+    method: 'POST',
+    headers: headers,
+    body:JSON.stringify(payload),
+    async:true
+  }).then(response => {
+    if (response.ok) {
+      response.json().then(json => {
+        console.log("response 2 data")
+        console.log(json)
+        
+        // make array of data
+      });
+      getDataViz(headers,payload_for_viz)
+    }
+    else {
+      console.log("server error -- response 2")
+    }
+  })
+}
+
 const handleDataRetrieval = ()=>{
   console.log(from_date)
   const jwt = cookie.load('jwt');
 
-  // const session_id = cookie.load('session_id');
+  const session_id = cookie.load('session_id');
 
   var new_from_date = new Date(from_date)
   var new_to_date = new Date(to_date)
   var email = cookie.load("email")
   const payload = {
-    from_date: {
+    from_date: JSON.stringify({
       year: new_from_date.getFullYear(),
       month: new_from_date.getMonth()+1,
       day: new_from_date.getDate()
-    },
-    to_date: {
+    }),
+    to_date: JSON.stringify({
       year: new_to_date.getFullYear(),
       month: new_to_date.getMonth()+1,
       day: new_to_date.getDate()
-    },
+    }),
     city_name: city_name
   }
   const headers = {
-    email: email,
-    Authorization: jwt,
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'email': email,
+    'Authorization': jwt,
     // insert session id here
-    // session_id: session_id
+    'session_id': session_id
   }
   console.log(payload);
-  axios.get(api_gateway_url +"retrieveData", {headers, params:payload}).
-  then(res=>{
-    console.log(res)
-    setWeather(res.data)
-  })
-  // const res = {
-  //   "weather":{
-  //     "1580922000.0": {
-  //       "temperature": 65.14,
-  //       "precipitation_intensity": 0,
-  //       "humidity": 0.79,
-  //       "pressure": 1015.1,
-  //       "wind_speed": 4.17,
-  //       "visibility": 10,
-  //       "dew_point": 58.3,
-  //       "summary": "Mostly Cloudy"
-  //     },
-  //     "1581008400.0": {
-  //       "temperature": 66.44,
-  //       "precipitation_intensity": 0,
-  //       "humidity": 0.73,
-  //       "pressure": 1017,
-  //       "wind_speed": 3.26,
-  //       "visibility": 10,
-  //       "dew_point": 57.52,
-  //       "summary": "Clear"
-  //     },
-  //     "1581094800.0": {
-  //       "temperature": 67.89,
-  //       "precipitation_intensity": 0,
-  //       "humidity": 0.69,
-  //       "pressure": 1018.7,
-  //       "wind_speed": 4.72,
-  //       "visibility": 10,
-  //       "dew_point": 57.35,
-  //       "summary": "Overcast"
-  //     },
-  //     "1581181200.0": {
-  //       "temperature": 67.96,
-  //       "precipitation_intensity": 0,
-  //       "humidity": 0.58,
-  //       "pressure": 1019.6,
-  //       "wind_speed": 7.29,
-  //       "visibility": 10,
-  //       "dew_point": 52.62,
-  //       "summary": "Overcast"
-  //     },
-  //     "1581267600.0": {
-  //       "temperature": 65.41,
-  //       "precipitation_intensity": 0,
-  //       "humidity": 0.5,
-  //       "pressure": 1017.9,
-  //       "wind_speed": 4.28,
-  //       "visibility": 10,
-  //       "dew_point": 46.27,
-  //       "summary": "Clear"
-  //     }
-  //   },
-  //   "latitude": 22.5726,
-  //   "longitude": 88.3639,
-  //   "center": {
-  //     lat: 22.5726,
-  //     lng: 88.3639
-  //   }
-  // }
-  // setWeather(res)
-  
+  let session_payload = {
+    "user_action": city_name + " " + new_from_date + " " + new_to_date,
+  }
+
+  getData(headers, payload, new_from_date, new_to_date);
 }
-
-
-  // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
-
- 
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -152,7 +181,7 @@ const handleDataRetrieval = ()=>{
           name = "from_date"
           label="Date picker dialog"
           format="MM/dd/yyyy"
-          value={selectedDate}
+          value={from_date || new Date()}
           onChange={updateFromDate}
           KeyboardButtonProps={{
             'aria-label': 'change date',
@@ -164,7 +193,7 @@ const handleDataRetrieval = ()=>{
           name = "to_date"
           label="Date picker dialog"
           format="MM/dd/yyyy"
-          value={selectedDate}
+          value={to_date || new Date()}
           onChange={updateToDate}
           KeyboardButtonProps={{
             'aria-label': 'change date',
@@ -177,3 +206,4 @@ const handleDataRetrieval = ()=>{
     </MuiPickersUtilsProvider>
   );
 }
+

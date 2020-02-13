@@ -65,7 +65,7 @@ export default function SimpleTabs() {
         <ReactVirtualizedTable/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

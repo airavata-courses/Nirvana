@@ -137,19 +137,32 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 
 export default function ReactVirtualizedTable() {
-  // const sample = [
-  //   ['Frozen yoghurt', 159, 6.0, 24, 4.0,7],
-  //   ['Ice cream sandwich', 237, 9.0, 37, 4.3,7],
-  //   ['Eclair', 262, 16.0, 24, 6.0,7],
-  //   ['Cupcake', 305, 3.7, 67, 4.3,7],
-    ['Gingerbread', 356, 16.0, 49, 3.9,7],
-  // ];
-  // function createData(id, day, temprature, precipitation, humidity, windSpeed,visibility) {
-  //   return { id, day, temprature, precipitation, humidity, windSpeed, visibility };
-  // }
-  const [dailyWeather, setWeather] = useContext(WeatherContext);
-  console.log(dailyWeather)
   const rows = [];
+  function createData(id, day, temprature, precipitation, humidity, windSpeed,visibility) {
+    return { id, day, temprature, precipitation, humidity, windSpeed, visibility };
+  }
+  const [dailyWeather, setWeather] = useContext(WeatherContext);
+  console.log(dailyWeather.weather)
+
+
+  //iterate through json
+  let i = 0
+  Object.keys(dailyWeather.weather).forEach(function(key) {
+    rows.push(createData(i, key,
+    dailyWeather.weather[key]["temperature"],
+    dailyWeather.weather[key]["precipitation_intensity"],
+    dailyWeather.weather[key]["humidity"],
+    dailyWeather.weather[key]["wind_speed"],
+    dailyWeather.weather[key]["visibility"]
+    ))
+    console.log("my printing", dailyWeather.weather[key]["temperature"]);
+    i+=1
+  });
+  // const weather = dailyWeather.weather;
+
+  // const days = Object.keys(dailyWeather.weather);
+  
+
   // for (let i = 0; i < 200; i += 1) {
   //   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
   //   rows.push(createData(i, ...randomSelection));

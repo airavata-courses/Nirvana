@@ -7,22 +7,37 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {WeatherContext} from '../Contexts/weather_context';
+
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+
 export default function SimpleTable() {
+
+  const rows = [];
+  function createData(id, day, temprature, precipitation, humidity, windSpeed,visibility) {
+    return { id, day, temprature, precipitation, humidity, windSpeed, visibility };
+  }
+  const [dailyWeather, setWeather] = useContext(WeatherContext);
+  console.log(dailyWeather.weather)
+  let i = 0
+  Object.keys(dailyWeather.weather).forEach(function(key) {
+    rows.push(createData(i, key,
+    dailyWeather.weather[key]["temperature"],
+    dailyWeather.weather[key]["precipitation_intensity"],
+    dailyWeather.weather[key]["humidity"],
+    dailyWeather.weather[key]["wind_speed"],
+    dailyWeather.weather[key]["visibility"]
+    ))
+    console.log("my printing", dailyWeather.weather[key]["temperature"]);
+    i+=1
+  });
+
+
   const classes = useStyles();
   return (
     <TableContainer component={Paper}>
