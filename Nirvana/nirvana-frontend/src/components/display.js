@@ -20,22 +20,21 @@ const useStyles = makeStyles(theme => ({
 export default function Display() {
     const [dailyWeather, setWeather] = useContext(WeatherContext);
     const classes = useStyles();
-    console.log("Hello: " + dailyWeather)
     
     return (
         <div className={classes.root}>
-            <Grid container spacing={3}>
-
-
-
+            <Grid container spacing={0}>
                 <Grid item xs={6} sm={6}>
                     <SimpleTabs/>
                 </Grid>
-                <Grid item xs={6} sm={6}>
+                <Grid item xs={1} sm={1}>
                     <MapContainer 
-                    latitude = {dailyWeather['latitude']}
-                    longitude = {dailyWeather['longitude']}
-                    center = {dailyWeather['center']}
+                        latitude = {dailyWeather.latitude}
+                        longitude = {dailyWeather.longitude}
+                       center = {{
+                        lat: dailyWeather.latitude,
+                        lng: dailyWeather.longitude
+                    }}
                     />
                 </Grid>
                 

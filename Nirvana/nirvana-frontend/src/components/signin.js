@@ -79,8 +79,9 @@ class SignIn extends Component {
         if (res.data["ApiCall"] === 'login Successful') {
           cookie.save('jwt', res.data['jwt'])
           cookie.save('email', this.state.email)
+          cookie.save('session_id', res.data['sessionId'])
           this.props.history.push('/dashboard');
-          // cookie.save('session_id', res.data['session_id'])
+          
         }
 
       })

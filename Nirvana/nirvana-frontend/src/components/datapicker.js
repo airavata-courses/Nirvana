@@ -35,10 +35,20 @@ const updateCityName = e => {
 
 let lat = 0;
 let lon = 0;
-let temprature  = [1];
-let precipitation = [1];
-let humidity = [1];
-let windSpeed = [1];
+let temprature  = [];
+let precipitation = [];
+let humidity = [];
+let windSpeed = [];
+let get_data = {};
+let get_future = {};
+let get_viz={};
+let result_context ={
+weather : get_data,
+future : get_future,
+viz : get_viz 
+};
+
+
 const getData = (headers, payload, new_from_date, new_to_date)=>{
   fetch(api_gateway_url + 'retrieveData', {
     method: 'POST',
@@ -46,39 +56,48 @@ const getData = (headers, payload, new_from_date, new_to_date)=>{
     body:JSON.stringify(payload),
     async:true
   }).then(response => {
-    if (response.ok) {
-      response.json().then(json => {
-        console.log("response 1 data")
-        console.log(json)
-        lat = json.latitude
-        lon = json.longitude
-        // make array of data
-        setWeather(json)
-      });
-      let dataToSend = {
-        from_date: JSON.stringify({
-          year: new_from_date.getFullYear(),
-          month: new_from_date.getMonth()+1,
-          day: new_from_date.getDate()
-        }),
-        to_date: JSON.stringify({
-          year: new_to_date.getFullYear(),
-          month: new_to_date.getMonth()+1,
-          day: new_to_date.getDate()
-        }),
-        city_name: city_name,
-        records: JSON.stringify({
-          temprature : temprature,
-          precipitation : precipitation,
-          humidity : humidity,
-          wind_speed : windSpeed
-        })
-      }
-      getDataFuture(headers,{"lat":lat, "lon":lon},dataToSend)
+      if (response.ok) 
+      {
+         response.json().then(json => {
+          lat = json.latitude
+          lon = json.longitude
+          result_context.weather = json.weather
+          setWeather({weather : json.weather,
+          latitude: lat,
+          longitude:lon})
 
+          
+          Object.keys(json.weather).forEach(function(key) {
+            temprature.push(json.weather[key].temperature);
+            precipitation.push(json.weather[key].precipitation_intensity);
+            humidity.push(json.weather[key].humidity);
+            windSpeed.push(json.weather[key].wind_speed); 
+          });
+          let dataToSend = {
+            from_date: JSON.stringify({
+              year: new_from_date.getFullYear(),
+              month: new_from_date.getMonth()+1,
+              day: new_from_date.getDate()
+            }),
+            to_date: JSON.stringify({
+              year: new_to_date.getFullYear(),
+              month: new_to_date.getMonth()+1,
+              day: new_to_date.getDate()
+            }),
+            city_name: city_name,
+            records: JSON.stringify({
+              temprature : temprature,
+              precipitation : precipitation,
+              humidity : humidity,
+              wind_speed : windSpeed
+            })
+          }
+          console.log("response 1")
+          getDataFuture(headers,{"lat":lat, "lon":lon},dataToSend)
+        });
+      
     }
     else {
-      console.log("server error -- response 1")
     }
   })
 }
@@ -93,20 +112,24 @@ const getDataViz = (headers, payload)=>{
   }).then(response => {
     if (response.ok) {
       response.json().then(json => {
-        console.log("response 3 data")
-        console.log(json)
-        // make array of data
+        setWeather({viz : json,
+        weather: result_context.weather,
+        future : result_context.future,
+        latitude: lat,
+        longitude:lon})
+        console.log("response 3")
+
+
+
       });
     }
     else {
-      console.log("server error -- response 3")
     }
   })
 }
 
 
-const getDataFuture = (headers, payload,payload_for_viz) => {
-  console.log(payload)
+const getDataFuture = (headers, payload,payload_for_viz, first_json, weather_data) => {
   fetch(api_gateway_url + 'retrieveDataFuture', {
     method: 'POST',
     headers: headers,
@@ -115,21 +138,25 @@ const getDataFuture = (headers, payload,payload_for_viz) => {
   }).then(response => {
     if (response.ok) {
       response.json().then(json => {
-        console.log("response 2 data")
-        console.log(json)
-        
-        // make array of data
+        result_context.future = json.weather
+        setWeather({future : json.weather, 
+        weather: result_context.weather,
+        latitude: lat,
+        longitude:lon})
+        console.log("response 2")
+        getDataViz(headers,payload_for_viz)
       });
-      getDataViz(headers,payload_for_viz)
     }
     else {
-      console.log("server error -- response 2")
     }
   })
 }
 
 const handleDataRetrieval = ()=>{
-  console.log(from_date)
+  temprature = []
+  precipitation = []
+  humidity = []
+  windSpeed = []
   const jwt = cookie.load('jwt');
 
   const session_id = cookie.load('session_id');
@@ -158,7 +185,6 @@ const handleDataRetrieval = ()=>{
     // insert session id here
     'session_id': session_id
   }
-  console.log(payload);
   let session_payload = {
     "user_action": city_name + " " + new_from_date + " " + new_to_date,
   }
@@ -172,7 +198,9 @@ const handleDataRetrieval = ()=>{
     <TextField id="outlined-basic" 
       label="Search City" 
       onChange={updateCityName}
-      variant="outlined"/>
+      variant="outlined"
+      required
+    />
 
       <Grid container justify="space-around">
         <KeyboardDatePicker
@@ -181,7 +209,7 @@ const handleDataRetrieval = ()=>{
           name = "from_date"
           label="Date picker dialog"
           format="MM/dd/yyyy"
-          value={from_date || new Date()}
+          value={from_date}
           onChange={updateFromDate}
           KeyboardButtonProps={{
             'aria-label': 'change date',
@@ -193,7 +221,7 @@ const handleDataRetrieval = ()=>{
           name = "to_date"
           label="Date picker dialog"
           format="MM/dd/yyyy"
-          value={to_date || new Date()}
+          value={to_date}
           onChange={updateToDate}
           KeyboardButtonProps={{
             'aria-label': 'change date',
