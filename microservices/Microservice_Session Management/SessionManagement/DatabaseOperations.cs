@@ -24,9 +24,12 @@ namespace SessionManagement
             //process
             //1. enter in session table
             //2. take the session id and enter in log table
-           
 
-            conn.Open();
+
+            if (conn != null && conn.State == System.Data.ConnectionState.Closed)
+            {
+                conn.Open();
+            }
             var query = "INSERT INTO sessiondetails(user_id) VALUES(@userid); SELECT LAST_INSERT_ID();";
             using var cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@userid", user_email);
@@ -55,14 +58,12 @@ namespace SessionManagement
                 insertIntoLogsTable(sessionId, "user logged in");
                 break;
             }
-            if (conn != null && conn.State == System.Data.ConnectionState.Open)
-            {
-                conn.Close();
-            }
+
         }
 
         public void insertIntoLogsTable(int sessionId, string log_action)
         {
+
             if (conn != null && conn.State == System.Data.ConnectionState.Closed)
             {
                 conn.Open();
@@ -73,7 +74,6 @@ namespace SessionManagement
             cmd.Parameters.AddWithValue("@logAction", log_action);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
-            conn.Close();
         }
 
         public void updateEndDateInSessionTable(Int64 sessionId)

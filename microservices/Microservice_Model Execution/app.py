@@ -5,7 +5,7 @@ from darksky.types import languages, units, weather
 import requests
 
 
-API_KEY_DARKSKY = "5b994c5d23bd07739c49ba20239157d7"
+API_KEY_DARKSKY = "b16862373c8444b2359349e22a2887c3"
 def getFutureData(latitude,longitude):
     darksky = DarkSky(API_KEY_DARKSKY)
     return_data = {

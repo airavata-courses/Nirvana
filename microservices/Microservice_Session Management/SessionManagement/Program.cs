@@ -36,6 +36,7 @@ namespace SessionManagement
                                 else if (message.Key.ToString().Contains("user_log"))
                                 {
                                     JObject json = JObject.Parse(message.Value.ToString());
+                                    Console.WriteLine(json);
                                     databaseOperations.insertIntoLogsTable(Int32.Parse(json.GetValue("session_id").ToString()), json.GetValue("user_action").ToString());
                                 }
                                 else if (message.Key.ToString().Contains("user_logout"))

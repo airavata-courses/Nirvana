@@ -3,16 +3,11 @@ from static.constants import *
 import threading,time
 from static.dataPool import setdata,getdata,deletedata
 data_api = Blueprint('data_api', __name__)
-thread_use = 0
 
 def get_data_thread():
     for message in consumer:
         map_key = str(message.key)[2:len(str(message.key)) - 1]
         setdata(map_key, message.value)
-
-thread1 = threading.Thread(target=get_data_thread)
-thread_use = 1
-thread1.start()
 
 @data_api.route("/retrieveData", methods=['POST'])
 def retrieve_data():
@@ -28,9 +23,8 @@ def retrieve_data():
         generated_map_key = generate_keys_for_user(headers['email'], "retrieve_data_service")
         producer.send('retrieve_data_service',
                       key=bytes(generated_map_key, 'utf-8'), value=data)
-        # thread1 = threading.Thread(target=get_data_thread)
-        # thread_use = 1
-        # thread1.start()
+        thread1 = threading.Thread(target=get_data_thread)
+        thread1.start()
         counter = 0
         while True:
             if generated_map_key in getdata():
@@ -46,7 +40,7 @@ def retrieve_data():
                 deletedata(generated_map_key)
                 return jsonify(consumer_value), 200
             counter += 1
-            if (counter > 6):
+            if (counter > 20):
                 return jsonify({'ApiCall': "request timeout"}), 200
             time.sleep(5)
     except Exception as e:
@@ -70,19 +64,17 @@ def retrieve_data_viz():
             "user_action" : "User retrived data viz",
 	        "session_id" : str(headers["session_id"])})
 
-        # thread1 = threading.Thread(target=get_data_thread)
-        # thread_use = 1
-        # thread1.start()
+        thread1 = threading.Thread(target=get_data_thread)
+        thread1.start()
         counter = 0
         while True:
             if generated_map_key in getdata():
                 thread_use = 0
                 consumer_value = getdata()[generated_map_key]
                 deletedata(generated_map_key)
-                
-                return jsonify({'ApiCall': str(consumer_value, 'utf-8')}), 200
+                return jsonify(consumer_value), 200
             counter += 1
-            if (counter > 6):
+            if (counter > 9):
                 return jsonify({'ApiCall': "request timeout"}), 200
             time.sleep(5)
     except Exception as e:
@@ -104,9 +96,8 @@ def retrieve_data_future():
         producer.send('session_management_and_logging_service', key=bytes("user_log", 'utf-8'), value={	
             "user_action" : "User retrived data future",
 	        "session_id" : str(headers["session_id"])})
-        # thread1 = threading.Thread(target=get_data_thread)
-        # thread_use = 1
-        # thread1.start()
+        thread1 = threading.Thread(target=get_data_thread)
+        thread1.start()
         counter = 0
         print("future")
         while True:

@@ -4,7 +4,7 @@ import requests
 import json
 import datetime
 API_KEY_LOCATIONIQ = "17bb61bd241d91"
-API_KEY_DARKSKY = "5b994c5d23bd07739c49ba20239157d7"
+API_KEY_DARKSKY = "b16862373c8444b2359349e22a2887c3"
 ## step 1
 def city_name_to_coordinates(name):
     url = "https://us1.locationiq.com/v1/search.php"
