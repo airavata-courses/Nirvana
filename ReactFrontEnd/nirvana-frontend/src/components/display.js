@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import MapContainer from './map';
 import { WeatherContext } from '../Contexts/weather_context'
-
+import SimpleTabs from './tabs';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,7 +29,7 @@ export default function Display() {
 
 
                 <Grid item xs={6} sm={6}>
-                    <Paper className={classes.paper}>xs=6 sm=3</Paper>
+                    <SimpleTabs/>
                 </Grid>
                 <Grid item xs={6} sm={6}>
                     <MapContainer 

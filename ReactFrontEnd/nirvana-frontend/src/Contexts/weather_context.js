@@ -8,7 +8,8 @@ export const WeatherProvider = props => {
         center: {
             lat: 10.0,
             lng: 10.0
-        }
+        },
+        weather:{}
     });
 
 
