@@ -13,5 +13,5 @@ Now all your setup is done
   b. user_management_microservice/src/main/java/ microservice -> run Main.java (java)
   c. data_retrieval microservice -> run app.py (python)
 
-Notes: all our databases are hosted online so you do not need to run those
+Notes: all our databases are hosted online so you do not need to run thos
 also all microservices should be running on different terminals
