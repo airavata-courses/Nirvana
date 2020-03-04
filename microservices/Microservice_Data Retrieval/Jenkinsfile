@@ -10,6 +10,15 @@ pipeline {
         git 'https://github.com/gustavoapolinario/microservices-node-example-todo-frontend.git'
       }
     }
+    stage('Trying to install docker and running hello world'){
+      steps{
+        sh '''
+        sudo apt-get install docker-engine -y
+        sudo service docker start
+        sudo docker run hello-world
+        '''   
+      }
+    }
     stage('Building image') {
       steps{
         script {
