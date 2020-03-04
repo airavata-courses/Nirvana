@@ -1,6 +1,6 @@
 node{
     checkout scm
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub'){
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
         def dockerimage = docker.build("juhideshkar30/data_retrieval")
         dockerimage.push()
     }
