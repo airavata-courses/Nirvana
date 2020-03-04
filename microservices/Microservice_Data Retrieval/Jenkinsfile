@@ -6,7 +6,7 @@ pipeline {
                 sh '''
                    git clone "https://github.com/airavata-courses/Nirvana.git"
                    git checkout Microservice_DataRetrieval
-                   cd "microservice/Microservice_Data Retrieval/"
+                   cd "microservices/Microservice_Data Retrieval/"
                    docker build -t image_name .
                 '''    
              }
