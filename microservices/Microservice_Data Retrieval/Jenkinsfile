@@ -3,9 +3,7 @@ pipeline {
     registry = "juhideshkar30/data_retrieval"
     registryCredential = 'dockerhub'
   }
-  agent {
-      dockerfile true
-  }
+  agent any
   stages {
     stage('Building image') {
       steps{
