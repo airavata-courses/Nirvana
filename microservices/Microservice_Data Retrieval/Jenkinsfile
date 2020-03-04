@@ -1,16 +1,21 @@
 pipeline {
-    agent{
-        dockerfile true
+  environment {
+    registry = "gustavoapolinario/docker-test"
+    registryCredential = ‘dockerhub’
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/gustavoapolinario/microservices-node-example-todo-frontend.git'
+      }
     }
-    stages {
-        stage('testing') {
-            steps {                 
-                sh '''
-                   git checkout Microservice_DataRetrieval
-                   cd "microservices/Microservice_Data Retrieval/"
-                   docker build -t image_name .
-                '''    
-             }
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
         }
+      }
     }
+  }
 }
