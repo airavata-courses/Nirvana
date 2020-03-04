@@ -1,17 +1,9 @@
-pipeline {
-    environment {
-    registry = "juhideshkar30/data_retrieval"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-   }
-    agent any
-    stages {
-        stage('Building image') {
-            steps{
-                script {
-                    def image = docker.build('date_ret_image', '--no-cache=true dockerbuild')
-                }
-            }
-        }
+node{
+    checkout scm
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub'){
+        def dockerimage = docker.build("juhideshkar30/data_retrieval")
+        dockerimage.push()
     }
 }
+
+
