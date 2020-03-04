@@ -1,9 +1,27 @@
-node{
-    checkout scm
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
-        def dockerimage = docker.build("juhideshkar30/data_retrieval")
-        dockerimage.push()
+pipeline {
+  environment {
+    registry = "juhideshkar30/data_retrieval"
+    registryCredential = 'dockerhub'
+  }
+  agent {
+      dockerfile true
+  }
+  stages {
+    stage('Building image') {
+      steps{
+        script {
+            dockerImage = docker.build registry + ":$BUILD_NUMBER"        
+        }
+      }
     }
+    stage('Deploy Image') {
+    steps{    
+        script {
+        docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+            }
+        }
+      }
+    }
+  }
 }
-
-
