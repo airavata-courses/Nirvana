@@ -1,35 +1,24 @@
 pipeline {
+    environment {
+    registry = "juhideshkar30/data_retrieval"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+   }
     agent any
     stages {
-        stage('Prepare environment') {
-            steps {                 
-                sh '''
-                    echo 'Start installing dependencies'
-                    #!/bin/bash
-                    rm -Rf ~/Builds/$PROJECT
-                    CODE_HOME=~/Builds/$PROJECT/code
-                    PYENV_HOME=~/Builds/$PROJECT/python
-                    export PYENV_HOME
-                    export PYTHONPATH=""
-                    echo "Creating new Python env"
-                    /usr/local/bin/python3 -m venv  --clear $PYENV_HOME
-                    source $PYENV_HOME/bin/activate
-                    pip install -r "microservices/Microservice_Data Retrieval/requirements.txt"
-                    echo 'Start running test cases'
-                    python "microservices/Microservice_Data Retrieval/app/tests/test.py"
-                '''    
-             }
-        }
-        stage('Deploy') {
-            steps {
-            sh '''
-                echo 'starting deploy...'
-                cd "microservices/Microservice_Data Retrieval/"
-                docker build -t retrieval .
-                docker run retrieval
-                echo 'Build Success...'
-            '''    
+        stage('Deploy Image') {
+        steps{
+            script {
+              docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
+              }
             }
+          }
+        }
+        stage('Remove Unused docker image') {
+          steps{
+            sh "docker rmi $registry:$BUILD_NUMBER"
+          }
         }
     }
 }
