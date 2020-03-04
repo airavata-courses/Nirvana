@@ -1,25 +1,15 @@
 pipeline {
-  environment {
-    registry = "juhideshkar30/data_retrieval"
-    registryCredential = 'dockerhub'
-  }
-  agent any
-  stages {
-    stage('Building image') {
-      steps{
-        script {
-            dockerImage = docker.build registry + ":$BUILD_NUMBER"        
+    agent any
+    stages {
+        stage('testing') {
+            steps {                 
+                sh '''
+                   git clone "https://github.com/airavata-courses/Nirvana.git"
+                   git checkout Microservice_DataRetrieval
+                   cd "microservice/Microservice_Data Retrieval/"
+                   docker build -t image_name .
+                '''    
+             }
         }
-      }
     }
-    stage('Deploy Image') {
-    steps{    
-        script {
-        docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-            }
-        }
-      }
-    }
-  }
 }
