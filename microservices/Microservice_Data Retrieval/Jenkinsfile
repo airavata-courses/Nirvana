@@ -1,5 +1,14 @@
 node{
     checkout scm
+    stage('Initialize')
+    {
+        def dockerHome = tool 'Docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+    stage('Checkout') 
+    {
+        checkout scm
+    }
     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'){
         def dockerimage = docker.build("juhideshkar30/data_retrieval")
         dockerimage.push()
