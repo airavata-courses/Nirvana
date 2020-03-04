@@ -8,7 +8,9 @@ pipeline {
     stages {
         stage('Building image') {
             steps{
-                docker.build()
+                script {
+                    def image = docker.build('date_ret_image', '--no-cache=true dockerbuild')
+                }
             }
         }
     }
