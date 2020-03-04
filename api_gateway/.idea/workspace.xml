@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="500d4914-28c0-43b2-8f2b-b62e7d11c4e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../microservices/Microservice_User Management/src/main/java/CryptoHandler/CryptoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tests/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microservices/Microservice_User Management/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../microservices/Microservice_User Management/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/original-user_management_microservice-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/original-user_management_microservice-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/user_management_microservice-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../microservices/Microservice_User Management/target/user_management_microservice-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +28,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="api_gateway" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -58,8 +53,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="api_gateway" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/tests/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
@@ -75,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581586334643</updated>
       <workItem from="1581586337681" duration="7662000" />
-      <workItem from="1583287828139" duration="384000" />
+      <workItem from="1583287828139" duration="3170000" />
     </task>
     <servers />
   </component>
@@ -87,22 +105,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1581586479227" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1581653278697">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1864" height="238" key="GridCell.Tab.0.bottom" timestamp="1583291457310">
+      <screen x="0" y="34" width="1920" height="980" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581653278697" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1581653278697">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1864" height="238" key="GridCell.Tab.0.bottom/0.34.1920.980@0.34.1920.980" timestamp="1583291457310" />
+    <state width="1864" height="238" key="GridCell.Tab.0.center" timestamp="1583291457310">
+      <screen x="0" y="34" width="1920" height="980" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581653278697" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1581653278696">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1864" height="238" key="GridCell.Tab.0.center/0.34.1920.980@0.34.1920.980" timestamp="1583291457310" />
+    <state width="1864" height="238" key="GridCell.Tab.0.left" timestamp="1583291457309">
+      <screen x="0" y="34" width="1920" height="980" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581653278696" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1581653278697">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1864" height="238" key="GridCell.Tab.0.left/0.34.1920.980@0.34.1920.980" timestamp="1583291457309" />
+    <state width="1864" height="238" key="GridCell.Tab.0.right" timestamp="1583291457310">
+      <screen x="0" y="34" width="1920" height="980" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581653278697" />
+    <state width="1864" height="238" key="GridCell.Tab.0.right/0.34.1920.980@0.34.1920.980" timestamp="1583291457310" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1581653278697">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -119,11 +141,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1581653278697" />
-    <state x="259" y="43" width="1269" height="912" key="SettingsEditor" timestamp="1583288211468">
+    <state x="259" y="43" width="1269" height="912" key="SettingsEditor" timestamp="1583289412806">
       <screen x="0" y="34" width="1920" height="980" />
     </state>
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581646647581" />
-    <state x="259" y="43" width="1269" height="912" key="SettingsEditor/0.34.1920.980@0.34.1920.980" timestamp="1583288211468" />
+    <state x="259" y="43" width="1269" height="912" key="SettingsEditor/0.34.1920.980@0.34.1920.980" timestamp="1583289412806" />
     <state x="63" y="288" key="com.intellij.ide.util.TipDialog" timestamp="1583287833025">
       <screen x="0" y="34" width="1920" height="980" />
     </state>
@@ -148,5 +170,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/api_gateway$app.coverage" NAME="app Coverage Results" MODIFIED="1581647101646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/api_gateway$test.coverage" NAME="test Coverage Results" MODIFIED="1583291457297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
   </component>
 </project>
