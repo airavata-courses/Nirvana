@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Prepare environment') {
             steps {                 
-                sh '''l
+                sh '''
                     echo 'Start installing dependencies'
                     #!/bin/bash
                     rm -Rf ~/Builds/$PROJECT
