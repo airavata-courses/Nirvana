@@ -1,4 +1,4 @@
-1. Switch to Alpha Testing Branch
+1. Switch to Alpha Testing Branchh
 2. install docker on your laptop
 3. go to docker files and run the command "docker-compose up" (this will create the zookeeper and the kafka containers)
 4. you can check the containers status by "docker ps -a"
