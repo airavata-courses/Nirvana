@@ -1,0 +1,11 @@
+pymongo
+pyjwt
+flask
+flask-cors
+passlib
+kafka-python
+requests==2.21.0
+darksky-weather
+seaborn
+plotly
+orca
