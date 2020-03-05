@@ -1,0 +1,110 @@
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.AssemblyInfoInputs.cache
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.AssemblyInfo.cs
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.exe
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.deps.json
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.runtimeconfig.json
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.runtimeconfig.dev.json
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.pdb
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\Confluent.Kafka.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\MySql.Data.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\alpine-librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\centos7-librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\debian9-librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\librdkafka.dylib
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\librdkafka.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\librdkafkacpp.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\libzstd.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\msvcp120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\msvcr120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\zlib.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\librdkafka.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\librdkafkacpp.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\libzstd.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\msvcp120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\msvcr120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\zlib.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.csprojAssemblyReference.cache
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.csproj.CopyComplete
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\session_management\SessionManagement\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.pdb
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.exe
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.deps.json
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.runtimeconfig.json
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.runtimeconfig.dev.json
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\SessionManagement.pdb
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\Confluent.Kafka.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\MySql.Data.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\alpine-librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\centos7-librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\debian9-librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\librdkafka.so
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\librdkafka.dylib
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\librdkafka.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\librdkafkacpp.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\libzstd.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\msvcp120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\msvcr120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\zlib.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\librdkafka.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\librdkafkacpp.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\libzstd.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\msvcp120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\msvcr120.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\zlib.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.csprojAssemblyReference.cache
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.AssemblyInfoInputs.cache
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.AssemblyInfo.cs
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.csproj.CopyComplete
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.dll
+C:\Users\nahus\OneDrive\Documents\GitHub\Nirvana\microservices\Microservice_Session Management\SessionManagement\obj\Debug\netcoreapp3.1\SessionManagement.pdb
