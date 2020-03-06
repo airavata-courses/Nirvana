@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Prepare environment') {
+        stage('Installing dependencies') {
             steps {                 
                 sh '''
                     echo 'Start installing dependencies'
@@ -9,9 +9,15 @@ pipeline {
                     python3 -m pip --version
                     python3 -m pip install --upgrade setuptools
                     python3 -m pip install -r "microservices/Microservice_Data Retrieval/requirements.txt"
-                    echo 'Start running test cases'
+                    '''
+             }
+        }         
+        stage('Running test cases') {
+            steps {                 
+                sh '''
+                   echo 'Start running test cases'
                     python3 "microservices/Microservice_Data Retrieval/app/tests/test.py"
-                '''    
+                  '''
              }
         }
         stage('Deploy') {
