@@ -5,7 +5,7 @@ flask-cors
 passlib
 kafka-python
 requests==2.21.0
-darksky-weather
+darksky_weather
 seaborn
 plotly
 orca
