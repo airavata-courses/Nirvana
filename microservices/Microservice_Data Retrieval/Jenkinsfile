@@ -23,18 +23,13 @@ pipeline {
         stage('Deploy') {
             steps {
             sh '''
-                #cd dir/200-ok/flask-api/
-                #git pull
-                #git checkout develop
+                ssh -t remotehost "sudo ./binary"
                 cd "microservices/Microservice_Data Retrieval"
-                apt-get remove docker docker-engine docker.io
+                sudo apt-get remove docker docker-engine docker.io
                 apt install docker.io
                 systemctl start docker
                 systemctl enable docker        
                 docker build -t dataretrieval-service .
-                #docker login
-                #docker tag flask-service 200okdocker/flask-service
-                #docker push 200okdocker/flask-service
             '''    
             }
         }
