@@ -20,7 +20,7 @@ pipeline {
                   '''
              }
         }
-        stage('Deploy') {
+        stage('Building Docker image') {
             steps {
             sh '''
                 cd "microservices/Microservice_Data Retrieval"
@@ -28,6 +28,15 @@ pipeline {
                 sudo systemctl start docker
                 sudo systemctl enable docker        
                 sudo docker build -t dataretrieval-service .
+            '''    
+            }
+        }
+        stage('Pushing to Docker hub') {
+            steps {
+            sh '''
+                sudo docker login --username=juhideshkar30 --password=qwertyuiop12345
+                sudo docker tag dataretrieval-service juhideshkar30/data_retrieval                
+                sudo docker push juhideshkar30/data_retrieval
             '''    
             }
         }
