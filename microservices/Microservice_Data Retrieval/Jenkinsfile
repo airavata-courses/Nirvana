@@ -1,30 +1,38 @@
 pipeline {
-  environment {
-    registry = "juhideshkar30/data_retrieval"
-    registryCredential = 'dockerhub'
-  }
-  agent any
-  stages {
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/gustavoapolinario/microservices-node-example-todo-frontend.git'
-      }
-    }
-    stage('Trying to install docker and running hello world'){
-      steps{
-        sh '''
-        sudo apt-get install docker-engine -y
-        sudo service docker start
-        sudo docker run hello-world
-        '''   
-      }
-    }
-    stage('Building image') {
-      steps{
-        script {
-          docker.build registry + ":$BUILD_NUMBER"
+    agent any
+    stages {
+        stage('Prepare environment') {
+            steps {                 
+                sh '''l
+                    echo 'Start installing dependencies'
+                    #!/bin/bash
+                    rm -Rf ~/Builds/$PROJECT
+                    CODE_HOME=~/Builds/$PROJECT/code
+                    PYENV_HOME=~/Builds/$PROJECT/python
+                    export PYENV_HOME
+                    export PYTHONPATH=""
+                    echo "Creating new Python env"
+                    /usr/local/bin/python3 -m venv  --clear $PYENV_HOME
+                    source $PYENV_HOME/bin/activate
+                    pip install -r "microservices/Microservice_Data Retrieval/requirements.txt"
+                    echo 'Start running test cases'
+                    python "microservices/Microservice_Data Retrieval/app/tests/test.py"
+                '''    
+             }
         }
-      }
+        stage('Deploy') {
+            steps {
+            sh '''
+                #cd dir/200-ok/flask-api/
+                #git pull
+                #git checkout develop
+                cd "microservices/Microservice_Data Retrieval"
+                docker build -t dataretrieval-service .
+                #docker login
+                #docker tag flask-service 200okdocker/flask-service
+                #docker push 200okdocker/flask-service
+            '''    
+            }
+        }
     }
-  }
 }
