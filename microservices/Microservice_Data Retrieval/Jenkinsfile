@@ -24,7 +24,7 @@ pipeline {
             steps {
             sh '''
                 cd "microservices/Microservice_Data Retrieval"
-                sudo apt install docker.io
+                sudo apt --assume-yes install docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
                 docker build -t dataretrieval-service .
