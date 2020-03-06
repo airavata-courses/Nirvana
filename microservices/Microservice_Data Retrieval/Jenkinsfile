@@ -5,9 +5,9 @@ pipeline {
             steps {                 
                 sh '''
                     echo 'Start installing dependencies'
-                    pip3 install -r "microservices/Microservice_Data Retrieval/requirements.txt"
+                    sudo pip3 install -r "microservices/Microservice_Data Retrieval/requirements.txt"
                     echo 'Start running test cases'
-                    python3 "microservices/Microservice_Data Retrieval/app/tests/test.py"
+                    sudo python3 "microservices/Microservice_Data Retrieval/app/tests/test.py"
                 '''    
              }
         }
