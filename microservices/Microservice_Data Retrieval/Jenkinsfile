@@ -5,10 +5,10 @@ pipeline {
             steps {                 
                 sh '''
                     echo 'Start installing dependencies'
-                    pip install --upgrade pip
-                    pip install -r "microservices/Microservice_Data Retrieval/requirements.txt"
+                    pip3 install --upgrade pip
+                    pip3 install -r "microservices/Microservice_Data Retrieval/requirements.txt"
                     echo 'Start running test cases'
-                    python "microservices/Microservice_Data Retrieval/app/tests/test.py"
+                    python3 "microservices/Microservice_Data Retrieval/app/tests/test.py"
                 '''    
              }
         }
