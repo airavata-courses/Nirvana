@@ -27,7 +27,7 @@ pipeline {
                 sudo apt --assume-yes install docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
-                docker build -t dataretrieval-service .
+                sudo docker build -t dataretrieval-service .
             '''    
             }
         }
