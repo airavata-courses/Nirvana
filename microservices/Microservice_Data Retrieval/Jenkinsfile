@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
             sh '''
-                ssh -t remotehost "sudo ./binary"
+                ssh -tt remotehost "sudo ./binary"
                 cd "microservices/Microservice_Data Retrieval"
                 sudo apt-get remove docker docker-engine docker.io
                 apt install docker.io
