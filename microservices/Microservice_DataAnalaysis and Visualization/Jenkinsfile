@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    stages {
+        stage('Installing dependencies') {
+            steps {                 
+                sh '''
+                    echo 'Start installing dependencies'
+                    echo 'pip version'
+                    python3 -m pip --version
+                    python3 -m pip install --upgrade setuptools
+                    python3 -m pip install -r "microservices/Microservice_Data Retrieval/requirements.txt"
+                    '''
+             }
+        }         
+        stage('Running test cases') {
+            steps {                 
+                sh '''
+                   echo 'Start running test cases'
+                    python3 "microservices/Microservice_DataAnalaysis and Visualization/app/tests/test.py"
+                  '''
+             }
+        }
+        stage('Building Docker image') {
+            steps {
+            sh '''
+                cd "microservices/Microservice_DataAnalaysis and Visualization"
+                sudo apt --assume-yes install docker.io
+                sudo systemctl start docker
+                sudo systemctl enable docker        
+                sudo docker build -t analysis-visualisation-service .
+            '''    
+            }
+        }
+        stage('Pushing to Docker hub') {
+            steps {
+            sh '''
+                sudo docker login --username=juhideshkar30 --password=qwertyuiop12345
+                sudo docker tag analysis-visualisation-service juhideshkar30/analysis_visualisation               
+                sudo docker push juhideshkar30/analysis_visualisation 
+            '''    
+            }
+        }
+    }
+}
