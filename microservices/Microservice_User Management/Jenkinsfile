@@ -26,7 +26,7 @@ pipeline {
         stage('Building Docker image') {
             steps {
             sh '''
-                
+                cd "microservices/Microservice_User Management"
                 sudo apt --assume-yes install docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
