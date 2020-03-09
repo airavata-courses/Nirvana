@@ -8,7 +8,7 @@ pipeline {
                     echo 'pip version'
                     python3 -m pip --version
                     python3 -m pip install --upgrade setuptools
-                    python3 -m pip install -r "microservices/Microservice_Data Retrieval/requirements.txt"
+                    python3 -m pip install -r "microservices/Microservice_DataAnalaysis and Visualization/requirements.txt"
                     '''
              }
         }         
