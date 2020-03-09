@@ -14,7 +14,7 @@ pipeline {
         stage('Building Docker image') {
             steps {
             sh '''
-                cd "/ReactFrontEnd/nirvana-frontend"
+                cd "ReactFrontEnd/nirvana-frontend"
                 npm run build
                 sudo apt --assume-yes install docker.io
                 sudo systemctl start docker
