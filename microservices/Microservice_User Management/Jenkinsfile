@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    stages {
+        stage('Installing dependencies') {
+            steps {                 
+                sh '''
+                    sudo apt update
+                    sudo apt --assume-yes install maven
+                    cd "microservices/Microservice_User Management"
+                    mvn pre-clean
+                    mvn compile
+                    mvn package
+                    
+                    '''
+             }
+        }
+        stage('Running test cases') {
+            steps {                 
+                sh '''
+                   echo 'Start running test cases'
+                    mvn test
+                  '''
+             }
+        }
+        stage('Building Docker image') {
+            steps {
+            sh '''
+                
+                sudo apt --assume-yes install docker.io
+                sudo systemctl start docker
+                sudo systemctl enable docker        
+                sudo docker build -t user-management-service .
+                echo "Docker build successful"
+            '''    
+            }
+        }
+        stage('Pushing to Docker hub') {
+            steps {
+            sh '''
+                sudo docker login --username=juhideshkar30 --password=qwertyuiop12345
+                sudo docker tag user-management-service juhideshkar30/user_management_service                
+                sudo docker push juhideshkar30/user_management_service
+               '''    
+            }
+        }
+        
+    }
+}
