@@ -4,7 +4,7 @@ pipeline {
         stage('Installing dependencies') {
             steps {                 
                 sh '''
-                    sudo apt-get update
+       
                     sudo apt --assume-yes install maven
                     cd "microservices/Microservice_User Management"
                     mvn pre-clean
