@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('Installing dependencies') {
+            steps {                 
+                sh '''
+                    sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+                    sudo apt --assume-yes install nodejs
+                    curl -L https://npmjs.org/install.sh | sudo sh
+                    '''
+             }
+        }         
+        
+        stage('Building Docker image') {
+            steps {
+            sh '''
+                cd "/ReactFrontEnd/nirvana-frontend"
+                npm run build
+                sudo apt --assume-yes install docker.io
+                sudo systemctl start docker
+                sudo systemctl enable docker        
+                sudo docker build -t frontend-service .
+            '''    
+            }
+        }
+        stage('Pushing to Docker hub') {
+            steps {
+            sh '''
+                sudo docker login --username=juhideshkar30 --password=qwertyuiop12345
+                sudo docker tag frontend-service juhideshkar30/frontend                
+                sudo docker push juhideshkar30/frontend
+            '''    
+            }
+        }
+    }
+}
