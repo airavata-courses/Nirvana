@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    stages {
+        stage('Installing dependencies') {
+            steps {                 
+                sh '''
+                    echo 'Start installing dependencies'
+                    echo 'pip version'
+                    python3 -m pip --version
+                    python3 -m pip install --upgrade setuptools
+                    python3 -m pip install -r "api_gateway/requirements.txt"
+                    '''
+             }
+        }         
+        stage('Running test cases') {
+            steps {                 
+                sh '''
+                   echo 'Start running test cases'
+                    python3 "api_gateway/app/tests/test.py"
+                  '''
+             }
+        }
+        stage('Building Docker image') {
+            steps {
+            sh '''
+                cd "api_gateway"
+                sudo apt --assume-yes install docker.io
+                sudo systemctl start docker
+                sudo systemctl enable docker        
+                sudo docker build -t api_gateway .
+            '''    
+            }
+        }
+        stage('Pushing to Docker hub') {
+            steps {
+            sh '''
+                sudo docker login --username=juhideshkar30 --password=qwertyuiop12345
+                sudo docker tag api_gateway juhideshkar30/api_gateway                
+                sudo docker push juhideshkar30/api_gateway
+            '''    
+            }
+        }
+    }
+}
