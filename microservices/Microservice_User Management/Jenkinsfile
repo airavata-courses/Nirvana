@@ -18,6 +18,7 @@ pipeline {
             steps {                 
                 sh '''
                    echo 'Start running test cases'
+                   cd "microservices/Microservice_User Management"
                     mvn test
                   '''
              }
