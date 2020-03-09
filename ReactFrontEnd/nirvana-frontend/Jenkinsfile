@@ -15,6 +15,7 @@ pipeline {
             steps {
             sh '''
                 cd "ReactFrontEnd/nirvana-frontend"
+                npm install
                 npm run build
                 sudo apt --assume-yes install docker.io
                 sudo systemctl start docker
