@@ -142,7 +142,7 @@ export default function ReactVirtualizedTable() {
     return { id, day, temprature, precipitation, humidity, windSpeed, visibility };
   }
   const [dailyWeather, setWeather] = useContext(WeatherContext);
-  // console.log(dailyWeather.weather)
+  console.log(dailyWeather.weather)
 
 
   //iterate through json
@@ -155,7 +155,7 @@ export default function ReactVirtualizedTable() {
     dailyWeather.weather[key]["wind_speed"],
     dailyWeather.weather[key]["visibility"]
     ))
-    // console.log("my printing", dailyWeather.weather[key]["temperature"]);
+    console.log("my printing", dailyWeather.weather[key]["temperature"]);
     i+=1
   });
   // const weather = dailyWeather.weather;

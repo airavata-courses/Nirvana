@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -23,15 +23,17 @@ export default function SimpleTable() {
     return { id, day, temprature, precipitation, humidity, windSpeed, visibility };
   }
   const [dailyWeather, setWeather] = useContext(WeatherContext);
+  console.log(dailyWeather.weather)
   let i = 0
-  Object.keys(dailyWeather.future).forEach(function(key) {
+  Object.keys(dailyWeather.weather).forEach(function(key) {
     rows.push(createData(i, key,
-    dailyWeather.future[key]["temperature"],
-    dailyWeather.future[key]["precipitation_intensity"],
-    dailyWeather.future[key]["humidity"],
-    dailyWeather.future[key]["wind_speed"],
-    dailyWeather.future[key]["visibility"]
+    dailyWeather.weather[key]["temperature"],
+    dailyWeather.weather[key]["precipitation_intensity"],
+    dailyWeather.weather[key]["humidity"],
+    dailyWeather.weather[key]["wind_speed"],
+    dailyWeather.weather[key]["visibility"]
     ))
+    console.log("my printing", dailyWeather.weather[key]["temperature"]);
     i+=1
   });
 
@@ -42,25 +44,23 @@ export default function SimpleTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Day</TableCell>
-            <TableCell align="right">Temprature</TableCell>
-            <TableCell align="right">Precipitation</TableCell>
-            <TableCell align="right">Humidity</TableCell>
-            <TableCell align="right">Wind Speed</TableCell>
-            <TableCell align="right">Visibility</TableCell>
+            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell align="right">Calories</TableCell>
+            <TableCell align="right">Fat&nbsp;(g)</TableCell>
+            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+            <TableCell align="right">Protein&nbsp;(g)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => (
-            <TableRow key={row.id}>
+            <TableRow key={row.name}>
               <TableCell component="th" scope="row">
-                {row.day}
+                {row.name}
               </TableCell>
-              <TableCell align="right">{row.temprature}</TableCell>
-              <TableCell align="right">{row.precipitation}</TableCell>
-              <TableCell align="right">{row.humidity}</TableCell>
-              <TableCell align="right">{row.windSpeed}</TableCell>
-              <TableCell align="right">{row.visibility}</TableCell>
+              <TableCell align="right">{row.calories}</TableCell>
+              <TableCell align="right">{row.fat}</TableCell>
+              <TableCell align="right">{row.carbs}</TableCell>
+              <TableCell align="right">{row.protein}</TableCell>
             </TableRow>
           ))}
         </TableBody>
