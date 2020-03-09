@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Building Docker image') {
+            steps {
+            sh '''
+                cd "microservices/Microservice_Session Management"
+                sudo apt --assume-yes install docker.io
+                sudo systemctl start docker
+                sudo systemctl enable docker        
+                sudo docker build -t session-management-service .
+            '''    
+            }
+        }
+        stage('Pushing to Docker hub') {
+            steps {
+            sh '''
+                sudo docker login --username=juhideshkar30 --password=qwertyuiop12345
+                sudo docker tag session-management-service juhideshkar30/session_management_service                
+                sudo docker push juhideshkar30/session_management_service
+            '''    
+            }
+        }
+    }
+}
