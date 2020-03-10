@@ -40,5 +40,13 @@ pipeline {
             '''    
             }
         }
+        stage('SSH call to Kubernetes master') {
+            steps {
+            sh '''
+                cd "microservices/Microservice_Data Retrieval"
+                ssh -i nirvana.pem ubuntu@149.165.169.31 "sudo kubectl apply -f yaml_files/data_retrieval/data_retrieval.yaml"
+            '''    
+            }
+        }
     }
 }
