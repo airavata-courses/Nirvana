@@ -52,6 +52,7 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_data_retrieval && 
+                sudo chmod 777 /etc/kubernetes admin.conf &&
                 kubectl apply -f config.yaml"
             '''    
             }
