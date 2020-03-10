@@ -44,7 +44,7 @@ pipeline {
             steps {
             sh '''
                 cd "microservices/Microservice_Data Retrieval"
-                ls
+                chmod 400 nirvana.pem
                 ssh -i nirvana.pem ubuntu@149.165.169.31 "sudo kubectl apply -f yaml_files/data_retrieval/data_retrieval.yaml"
             '''    
             }
