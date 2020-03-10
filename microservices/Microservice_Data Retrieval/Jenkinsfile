@@ -52,7 +52,7 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_data_retrieval && 
-                sudo kubectl apply -f config.yaml"
+                kubectl apply -f config.yaml"
             '''    
             }
         }
