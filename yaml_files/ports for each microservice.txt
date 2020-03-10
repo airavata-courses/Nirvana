@@ -1,0 +1,38 @@
+ports for each microservice
+
+--> analysis and visualization
+targetPort: 5001
+port: 5001
+nodePort: 30004
+containerPort: 5001
+
+--> data retrieval
+targetPort: 5000
+port: 5000
+nodePort: 30002
+containerPort: 5000
+
+--> model execution
+targetPort: 5002
+port: 5002
+nodePort: 30005
+containerPort: 5002
+
+--> user management 
+targetPort: 8080
+port: 8080
+nodePort: 30008
+containerPort: 5003
+
+--> api gateway
+targetPort: 5005
+port: 5005
+nodePort: 30005
+containerPort: 5005
+
+--> frontend
+
+
+
+
+--> session management
