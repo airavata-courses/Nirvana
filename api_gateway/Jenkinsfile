@@ -43,7 +43,7 @@ pipeline {
         stage('SSH call to Kubernetes master') {
             steps {
             sh '''
-                cd "microservices/Microservice_Data Retrieval" 
+                cd "api_gateway" 
                 chmod 400 nirvana.pem
                 ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.31 uptime
                 ssh -i nirvana.pem ubuntu@149.165.169.31 " rm -rf Nirvana &&
