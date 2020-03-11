@@ -31,6 +31,10 @@ nodePort: 30005
 containerPort: 5005
 
 --> frontend
+targetPort: 5003
+port: 5003
+nodePort: 30009
+containerPort: 9090
 
 
 
