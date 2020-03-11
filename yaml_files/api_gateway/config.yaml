@@ -5,9 +5,9 @@ metadata:
 spec:
  type: LoadBalancer
  ports:
-  - targetPort: 5005
-    port: 5005
-    nodePort: 30005
+  - targetPort: 5000
+    port: 5000
+    nodePort: 30002
  selector:
   app: python
 --
@@ -30,4 +30,4 @@ spec:
         imagePullPolicy: Always
         image: juhideshkar30/api_gateway
         ports:
-        - containerPort: 5005
+        - containerPort: 5000
