@@ -43,7 +43,7 @@ pipeline {
                 git clone https://github.com/airavata-courses/Nirvana.git &&
                 cd Nirvana &&
                 git pull &&
-                git checkout React-UI &&
+                git checkout Kubernetes_files &&
                 cd yaml_files/frontend && 
                 export KUBECONFIG=/etc/kubernetes/admin.conf
                 kubectl apply -f config.yaml"
