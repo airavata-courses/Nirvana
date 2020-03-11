@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: react-frontend
 spec:
- type: LoadBalancer
+ type: NodePort
  ports:
-  - targetPort: 5003
-    port: 5003
-    nodePort: 30009
+  - targetPort: 80
+    port: 80
+    nodePort: 31000
  selector:
   app: app
 ---
@@ -31,3 +31,4 @@ spec:
         image: juhideshkar30/frontend
         ports:
         - containerPort: 9090
+      restartPolicy: Always
