@@ -15,7 +15,7 @@ spec:
       containers:
       - env:
         - name: ZK_HOSTS
-          value: 149.165.169.31:2181
+          value: 149.165.169.31:30012
         image: mzagar/kafka-manager-docker:1.3.3.4
         name: kafkamanager
         ports:

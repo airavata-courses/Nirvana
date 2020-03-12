@@ -17,11 +17,11 @@ spec:
         - name: ADVERTISED_HOST
           value: 149.165.169.31
         - name: ADVERTISED_PORT
-          value: "9092"
+          value: "30011"
+        - name: KAFKA_CREATE_TOPICS
+          value: admintome-test:1:1
         image: spotify/kafka:latest
         name: kafka
         ports:
-        - containerPort: 2181
         - containerPort: 9092
-      hostname: kafkaserver
       restartPolicy: Always
