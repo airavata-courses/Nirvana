@@ -7,7 +7,7 @@ from flask import Blueprint, request, jsonify
 from kafka.admin import KafkaAdminClient
 jwthandler = JwtHandler()
 
-KAFKA_HOSTS = ['localhost:9092']
+KAFKA_HOSTS = ['149.165.169.31:31330']
 KAFKA_VERSION = (0, 10)
 
 def generate_keys_for_user(user_email, user_service_task):
