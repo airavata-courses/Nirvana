@@ -1,29 +1,21 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.19.0 (f63a961c)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: kafkaserver
   name: kafkaserver
 spec:
-  replicas: 1
-  strategy: {}
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.19.0 (f63a961c)
-      creationTimestamp: null
       labels:
-        io.kompose.service: kafkaserver
+        app: app
     spec:
       containers:
       - env:
         - name: ADVERTISED_HOST
-          value: kafkaserver
+          value: 149.165.169.31
         - name: ADVERTISED_PORT
           value: "9092"
         image: spotify/kafka:latest
@@ -31,7 +23,5 @@ spec:
         ports:
         - containerPort: 2181
         - containerPort: 9092
-        resources: {}
       hostname: kafkaserver
       restartPolicy: Always
-status: {}
