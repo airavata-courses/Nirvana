@@ -8,11 +8,11 @@ spec:
   - targetPort: 5000
     name: kafka
     port: 5000
-    nodePort: 9092
+    nodePort: 30092
   - targetPort: 5001
     port: 5001
     name: kafka-manager
-    nodePort: 2181
+    nodePort: 30081
  selector:
   app: kafka
 ---
