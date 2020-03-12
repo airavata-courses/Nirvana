@@ -3,7 +3,7 @@ from kafka import KafkaProducer
 from kafka.admin import KafkaAdminClient
 import json
 
-KAFKA_HOSTS = ['localhost:9092']
+KAFKA_HOSTS = ['149.165.169.31:31330']
 KAFKA_VERSION = (0, 10)
 topic = "retrieve_data_viz_service"
 consumer = KafkaConsumer(topic, auto_offset_reset='earliest', group_id='kafkagroupid', enable_auto_commit=True,
