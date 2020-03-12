@@ -44,6 +44,23 @@ pipeline {
                '''    
             }
         }
+         stage('SSH call to Kubernetes master') {
+            steps {
+            sh '''
+                cd "microservices/Microservice_User Management" 
+                chmod 400 nirvana.pem
+                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.31 uptime
+                ssh -i nirvana.pem ubuntu@149.165.169.31 " rm -rf Nirvana &&
+                git clone https://github.com/airavata-courses/Nirvana.git &&
+                cd Nirvana &&
+                git pull &&
+                git checkout Kubernetes_files &&
+                cd yaml_files/microservice_user_management && 
+                export KUBECONFIG=/etc/kubernetes/admin.conf &&
+                kubectl apply -f config.yaml"
+            '''    
+            }
+        }
         
     }
 }
