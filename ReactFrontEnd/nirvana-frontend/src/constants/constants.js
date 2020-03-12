@@ -1,1 +1,1 @@
-export const api_gateway_url = "10.0.0.142:30010"
+export const api_gateway_url = "http://10.0.0.142:30010"
