@@ -32,5 +32,9 @@ spec:
         env:
         - name: PYTHONUNBUFFERED
           value: "0"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
         ports:
         - containerPort: 5000
