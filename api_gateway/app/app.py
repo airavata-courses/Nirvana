@@ -11,6 +11,10 @@ from static.dataPool import setdata
 import sys
 sys.stdout = Unbuffered(sys.stdout)
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
+
 app = Flask(__name__, static_url_path='/static')
 app.config.from_object(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -23,5 +27,6 @@ app.register_blueprint(session_api)
 
 if __name__ == '__main__':
     print("starting my flask...")
+    logging.debug("this is logging flask...")
     app.run(host='0.0.0.0', port=5000, debug=True)
 
