@@ -8,6 +8,8 @@ import threading
 from threading import Lock
 import time
 from static.dataPool import setdata
+import sys
+sys.stdout = Unbuffered(sys.stdout)
 
 app = Flask(__name__, static_url_path='/static')
 app.config.from_object(__name__)
@@ -20,5 +22,6 @@ app.register_blueprint(data_api)
 app.register_blueprint(session_api)
 
 if __name__ == '__main__':
+    print("starting my flask...")
     app.run(host='0.0.0.0', port=5000, debug=True)
 
