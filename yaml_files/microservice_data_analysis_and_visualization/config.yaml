@@ -5,8 +5,8 @@ metadata:
 spec:
  type: LoadBalancer
  ports:
-  - targetPort: 5001
-    port: 5001
+  - targetPort: 5003
+    port: 5003
     nodePort: 30004
  selector:
   app: python
@@ -30,4 +30,4 @@ spec:
         imagePullPolicy: Always
         image: juhideshkar30/analysis_visualisation
         ports:
-        - containerPort: 5001
+        - containerPort: 5003
