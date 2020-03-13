@@ -1,8 +1,6 @@
 from statics import consumer,producer
 import json
 import datetime
-import plotly.graph_objs as go
-import plotly
 import os
 import base64
 from generate import generate_dates, generate_graph, generate_array_of_dates
