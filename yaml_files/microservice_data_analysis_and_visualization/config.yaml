@@ -10,7 +10,7 @@ spec:
     nodePort: 30004
  selector:
   app: python
---
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
