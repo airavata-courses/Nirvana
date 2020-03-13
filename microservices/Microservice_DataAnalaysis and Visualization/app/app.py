@@ -4,6 +4,7 @@ import datetime
 import os
 import base64
 from generate import generate_dates, generate_graph, generate_array_of_dates
+import click
 
 
 for message_in_consumer in consumer:
@@ -15,13 +16,13 @@ for message_in_consumer in consumer:
         from_date = json.loads(message['from_date'])
         to_date = json.loads(message['to_date'])
         message["records"] = json.loads(message["records"])
-        print(message['records'])
+        click.echo(message['records'])
         temprature_recordings = message['records']['temprature']
         precipitation_recordings = message['records']['precipitation']
         humidity_recordings = message['records']['humidity']
         wind_speed_recordings = message['records']['wind_speed']
         array_of_dates = generate_array_of_dates(from_date,to_date)
-        print(temprature_recordings)
+        click.echo(temprature_recordings)
 
         data_to_send ={}
         data_to_send["temprature_recordings"] = generate_graph(city_name, array_of_dates,temprature_recordings,key,"temprature_recordings")
