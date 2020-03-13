@@ -9,8 +9,8 @@ from threading import Lock
 import time
 from static.dataPool import setdata
 import sys
-import logging
-logging.basicConfig(level=logging.DEBUG)
+import click
+
 
 
 app = Flask(__name__, static_url_path='/static')
@@ -24,7 +24,6 @@ app.register_blueprint(data_api)
 app.register_blueprint(session_api)
 
 if __name__ == '__main__':
-    print("starting my flask...")
-    logging.debug("this is logging flask...")
+    click.echo('Hello World!')
     app.run(host='0.0.0.0', port=5000, debug=True)
 
