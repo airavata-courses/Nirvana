@@ -9,8 +9,6 @@ from threading import Lock
 import time
 from static.dataPool import setdata
 import sys
-sys.stdout = Unbuffered(sys.stdout)
-
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
