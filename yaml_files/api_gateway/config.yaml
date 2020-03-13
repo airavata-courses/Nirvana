@@ -26,11 +26,11 @@ spec:
         app: python
     spec:
       containers:
-        env:
-        - name: PYTHONUNBUFFERED
-          value: "0"
       - name: api-gateway-microservice
         imagePullPolicy: Always
         image: juhideshkar30/api_gateway
+        env:
+        - name: PYTHONUNBUFFERED
+          value: "0"
         ports:
         - containerPort: 5000
