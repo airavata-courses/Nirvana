@@ -16,6 +16,7 @@ def call_login_microservice():
     try:
         # Fetching data from post body
         data = request.get_json()
+        print("got data AUTHENTICATE USER LINK: ", data);
         generated_map_key = generate_keys_for_user(data['email'], "login_service")
         generated_map_key2 = generate_keys_for_user(data['email'],"session_service")
         producer.send('authentication_login', key=bytes(generated_map_key, 'utf-8'), value=data)
