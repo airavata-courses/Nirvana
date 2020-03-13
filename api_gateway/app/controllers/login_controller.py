@@ -2,6 +2,7 @@ from static.constants import *
 import time
 import threading
 from static.dataPool import getdata, deletedata, setdata
+import click
 
 login_api = Blueprint('login_api', __name__)
 
@@ -16,11 +17,11 @@ def call_login_microservice():
     try:
         # Fetching data from post body
         data = request.get_json()
-        print("got data AUTHENTICATE USER LINK: ", data)
+        click.echo("got data AUTHENTICATE USER LINK: ", data)
         generated_map_key = generate_keys_for_user(data['email'], "login_service")
         generated_map_key2 = generate_keys_for_user(data['email'],"session_service")
         producer.send('authentication_login', key=bytes(generated_map_key, 'utf-8'), value=data)
-        print("AUTHENTICATE USER PRODUCER SEND SUCCESS!!")
+        click.echo("AUTHENTICATE USER PRODUCER SEND SUCCESS!!")
         thread1 = threading.Thread(target=get_data_thread)
         thread1.start()
         counter = 0
