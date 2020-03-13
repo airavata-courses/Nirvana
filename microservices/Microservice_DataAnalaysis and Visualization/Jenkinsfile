@@ -53,6 +53,8 @@ pipeline {
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_data_analysis_and_visualization && 
                 export KUBECONFIG=/etc/kubernetes/admin.conf
+                kubectl delete service data-analysis-visualization &&
+                kubectl delete deployment data-analysis-visualization &&
                 kubectl apply -f config.yaml"
             '''    
             }
