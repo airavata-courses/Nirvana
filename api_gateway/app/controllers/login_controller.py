@@ -8,7 +8,7 @@ login_api = Blueprint('login_api', __name__)
 
 def get_data_thread():
     for message in consumer:
-        print(message)
+        click.echo(str(message))
         map_key = str(message.key)[2:len(str(message.key)) - 1]
         setdata(map_key, message.value)
 
