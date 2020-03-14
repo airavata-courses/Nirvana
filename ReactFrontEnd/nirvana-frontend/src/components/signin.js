@@ -75,7 +75,7 @@ class SignIn extends Component {
     console.log(payload)
     axios.post(api_gateway_url + 'authenticateUser', payload).
       then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.data["ApiCall"] === 'login Successful') {
           cookie.save('jwt', res.data['jwt'])
           cookie.save('email', this.state.email)
