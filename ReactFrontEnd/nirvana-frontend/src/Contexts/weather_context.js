@@ -9,7 +9,9 @@ export const WeatherProvider = props => {
             lat: 10.0,
             lng: 10.0
         },
-        weather:{}
+        weather:{},
+        future: {},
+        viz:{}
     });
 
 

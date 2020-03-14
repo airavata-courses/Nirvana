@@ -80,7 +80,7 @@ class SignIn extends Component {
           cookie.save('jwt', res.data['jwt'])
           cookie.save('email', this.state.email)
           this.props.history.push('/dashboard');
-          // cookie.save('session_id', res.data['session_id'])
+          cookie.save('session_id', res.data['session_id'])
         }
 
       })
