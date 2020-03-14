@@ -14,10 +14,13 @@ for message_in_consumer in consumer:
         message = json.loads(message)
 
         city_name = message['city_name']
-        from_date = json.loads(message['from_date'])
-        to_date = json.loads(message['to_date'])
+        # click.echo("city name done")
+        from_date = message['from_date']
+        # click.echo("from date done")
+        to_date = message['to_date']
+        # click.echo("to date done")
         message["records"] = json.loads(message["records"])
-        click.echo(message['records'])
+        # click.echo(message['records'])
         temprature_recordings = message['records']['temprature']
         precipitation_recordings = message['records']['precipitation']
         humidity_recordings = message['records']['humidity']
@@ -30,6 +33,8 @@ for message_in_consumer in consumer:
         data_to_send["precipitation_recordings"] = generate_graph(city_name, array_of_dates, precipitation_recordings, key, "precipitation_recordings")
         data_to_send["humidity_recordings"] = generate_graph(city_name, array_of_dates, humidity_recordings, key, "humidity_recordings")
         data_to_send["wind_speed_recordings"] = generate_graph(city_name, array_of_dates, wind_speed_recordings, key, "wind_speed_recordings")
+
+        # print(data_to_send)
 
         producer.send("API_Consumer", key=bytes(key, 'utf-8'), value=data_to_send)
     except Exception as e:
