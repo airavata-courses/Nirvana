@@ -72,6 +72,7 @@ def retrieve_data_viz():
                 thread_use = 0
                 consumer_value = getdata()[generated_map_key]
                 deletedata(generated_map_key)
+                consumer_value = str(consumer_value, 'utf-8')
                 return jsonify(consumer_value), 200
             counter += 1
             if (counter > 9):

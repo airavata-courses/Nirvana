@@ -24,6 +24,5 @@ app.register_blueprint(data_api)
 app.register_blueprint(session_api)
 
 if __name__ == '__main__':
-    click.echo('Hello World!')
     app.run(host='0.0.0.0', port=5000, debug=True)
 
