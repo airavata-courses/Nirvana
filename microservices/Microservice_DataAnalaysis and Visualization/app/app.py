@@ -6,8 +6,9 @@ import base64
 from generate import generate_dates, generate_graph, generate_array_of_dates
 import click
 
-
 for message_in_consumer in consumer:
+    try:
+        click.echo(message_in_consumer)
         key = str(message_in_consumer.key)[2:len(str(message_in_consumer.key)) - 1]
         message = str(message_in_consumer.value, 'utf-8')
         message = json.loads(message)
@@ -30,6 +31,8 @@ for message_in_consumer in consumer:
         data_to_send["humidity_recordings"] = generate_graph(city_name, array_of_dates, humidity_recordings, key, "humidity_recordings")
         data_to_send["wind_speed_recordings"] = generate_graph(city_name, array_of_dates, wind_speed_recordings, key, "wind_speed_recordings")
 
-        producer.send("API_Consumer",
-                      key=bytes(key, 'utf-8'), value=data_to_send)
+        producer.send("API_Consumer", key=bytes(key, 'utf-8'), value=data_to_send)
+    except Exception as e:
+        click.echo(e)
+   
 
