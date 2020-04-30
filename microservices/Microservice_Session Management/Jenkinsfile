@@ -8,7 +8,7 @@ pipeline {
                     wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
                     sudo dpkg -i packages-microsoft-prod.deb     
                     sudo apt-get update
-                    sudo apt-get --assume-yes install apt-transport-https
+                    sudo -S apt-get install -y apt-transport-https
                     sudo apt-get update
                     sudo apt-get --assume-yes install dotnet-sdk-3.1
                     sudo dotnet build 
@@ -19,7 +19,7 @@ pipeline {
             steps {
             sh '''
                 cd "microservices/Microservice_Session Management"
-                sudo apt --assume-yes install docker.io
+                sudo -S apt install -y docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
                 sudo docker build -t session-management-service .
@@ -41,8 +41,8 @@ pipeline {
             sh '''
                 cd "microservices/Microservice_Session Management" 
                 chmod 400 nirvana.pem
-                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.31 uptime
-                ssh -i nirvana.pem ubuntu@149.165.169.31 " rm -rf Nirvana &&
+                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.122 uptime
+                ssh -i nirvana.pem ubuntu@149.165.169.122 " rm -rf Nirvana &&
                 git clone https://github.com/airavata-courses/Nirvana.git &&
                 cd Nirvana &&
                 git pull &&
