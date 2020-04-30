@@ -33,7 +33,7 @@ pipeline {
         stage('Pushing to Docker hub') {
             steps {
             sh '''
-                sudo docker login --username=juhideshkar30 --password=qwertyuiop12345
+                sudo docker login --username=juhideshkar30 --password-stdin=qwertyuiop12345
                 sudo docker tag api_gateway juhideshkar30/api_gateway                
                 sudo docker push juhideshkar30/api_gateway
             '''    
