@@ -45,7 +45,7 @@ pipeline {
                 cd "api_gateway" 
                 chmod 400 nirvana.pem
                 ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.31 uptime
-                ssh -i nirvana.pem ubuntu@149.165.169.31 " rm -rf Nirvana &&
+                ssh -i nirvana.pem ubuntu@149.165.169.122 " rm -rf Nirvana &&
                 git clone https://github.com/airavata-courses/Nirvana.git &&
                 cd Nirvana &&
                 git pull &&
