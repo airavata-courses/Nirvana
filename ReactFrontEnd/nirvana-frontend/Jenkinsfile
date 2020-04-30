@@ -5,7 +5,7 @@ pipeline {
             steps {                 
                 sh '''
                     sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-                    sudo apt --assume-yes install nodejs
+                    sudo -S apt install -y nodejs
                     curl -L https://npmjs.org/install.sh | sudo sh
                     '''
              }
@@ -17,7 +17,7 @@ pipeline {
                 cd "ReactFrontEnd/nirvana-frontend"
                 npm install
                 npm run build
-                sudo apt --assume-yes install docker.io
+                sudo -S apt install -y docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
                 sudo docker build -t frontend-service .
@@ -38,8 +38,8 @@ pipeline {
             sh '''
                 cd "ReactFrontEnd/nirvana-frontend" 
                 chmod 400 nirvana.pem
-                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.31 uptime
-                ssh -i nirvana.pem ubuntu@149.165.169.31 " rm -rf Nirvana &&
+                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.122 uptime
+                ssh -i nirvana.pem ubuntu@149.165.169.122 " rm -rf Nirvana &&
                 git clone https://github.com/airavata-courses/Nirvana.git &&
                 cd Nirvana &&
                 git pull &&
