@@ -7,8 +7,8 @@ pipeline {
                     echo 'Start installing dependencies'
                     echo 'pip version'
                     #python3 -m pip --version
-                    python3 -m pip install --upgrade setuptools
-                    python3 -m pip install -r "api_gateway/requirements.txt"
+                    pip install --upgrade setuptools
+                    pip install -r "api_gateway/requirements.txt"
                     '''
              }
         }         
