@@ -6,9 +6,8 @@ pipeline {
                 sh '''
                     echo 'Start installing dependencies'
                     echo 'pip version'
-                    python3 -m pip --version
-                    python3 -m pip install --upgrade setuptools
-                    python3 -m pip install -r "microservices/Microservice_Model Execution/requirements.txt"
+                    pip3 install --upgrade setuptools
+                    pip3 install -r "microservices/Microservice_Model Execution/requirements.txt"
                     '''
              }
         }         
@@ -24,7 +23,7 @@ pipeline {
             steps {
             sh '''
                 cd "microservices/Microservice_Model Execution"
-                sudo apt --assume-yes install docker.io
+                sudo -S apt install -y docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
                 sudo docker build -t modelexecution-service .
@@ -45,8 +44,8 @@ pipeline {
             sh '''
                 cd "microservices/Microservice_Model Execution" 
                 chmod 400 nirvana.pem
-                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.31 uptime
-                ssh -i nirvana.pem ubuntu@149.165.169.31 " rm -rf Nirvana &&
+                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.122 uptime
+                ssh -i nirvana.pem ubuntu@149.165.169.122 " rm -rf Nirvana &&
                 git clone https://github.com/airavata-courses/Nirvana.git &&
                 cd Nirvana &&
                 git pull &&
