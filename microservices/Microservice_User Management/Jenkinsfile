@@ -5,7 +5,7 @@ pipeline {
             steps {                 
                 sh '''
        
-                    sudo apt --assume-yes install maven
+                    sudo -S apt install -y maven
                     cd "microservices/Microservice_User Management"
                     mvn pre-clean
                     mvn compile
@@ -27,7 +27,7 @@ pipeline {
             steps {
             sh '''
                 cd "microservices/Microservice_User Management"
-                sudo apt --assume-yes install docker.io
+                sudo -S apt install -y docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
                 sudo docker build -t user-management-service .
@@ -49,8 +49,8 @@ pipeline {
             sh '''
                 cd "microservices/Microservice_User Management" 
                 chmod 400 nirvana.pem
-                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.31 uptime
-                ssh -i nirvana.pem ubuntu@149.165.169.31 " rm -rf Nirvana &&
+                ssh -o StrictHostKeyChecking=no -i nirvana.pem ubuntu@149.165.169.122 uptime
+                ssh -i nirvana.pem ubuntu@149.165.169.122 " rm -rf Nirvana &&
                 git clone https://github.com/airavata-courses/Nirvana.git &&
                 cd Nirvana &&
                 git pull &&
