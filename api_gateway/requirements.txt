@@ -8,4 +8,4 @@ requests==2.21.0
 darksky-weather
 seaborn
 plotly
-orca
+orca 
