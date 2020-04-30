@@ -23,7 +23,7 @@ pipeline {
             steps {
             sh '''
                 cd "api_gateway"
-                sudo apt install docker.io
+                sudo apt install -y docker.io
                 sudo systemctl start docker
                 sudo systemctl enable docker        
                 sudo docker build -t api_gateway .
