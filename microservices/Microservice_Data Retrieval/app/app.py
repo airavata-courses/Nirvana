@@ -3,7 +3,7 @@ from kafka import KafkaConsumer
 from kafka import KafkaProducer
 from bson import json_util
 from dark_sky_api_call import darksky_api_call
-KAFKA_HOSTS = ['149.165.169.122:31330']
+KAFKA_HOSTS = ['kafka1:9092']
 
 KAFKA_VERSION = (0, 10)
 consumer = KafkaConsumer("retrieve_data_service", auto_offset_reset='earliest', group_id='kafkagroupid', enable_auto_commit=True,
