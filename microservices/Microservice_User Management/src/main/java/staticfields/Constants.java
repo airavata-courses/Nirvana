@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Properties;
 
 public class Constants {
-    public static final String KAFKA_BOOTSTRAP_SERVERS = "149.165.169.122:31330";
+    public static final String KAFKA_BOOTSTRAP_SERVERS = "kafka:9092";
     public final static String TOPIC_AUTHENTICATION_LOGIN = "authentication_login";
     public final static String TOPIC_AUTHENTICATION_SIGNUP = "authentication_signup";
 
