@@ -3,7 +3,7 @@ from kafka import KafkaConsumer
 from kafka import KafkaProducer
 from bson import json_util
 
-KAFKA_HOSTS = ['149.165.169.122:31330']
+KAFKA_HOSTS = ['kafka:9092']
 
 KAFKA_VERSION = (0, 10)
 consumer = KafkaConsumer("retrieve_data_future_service", auto_offset_reset='earliest', group_id='kafkagroupid',
