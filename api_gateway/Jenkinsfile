@@ -51,7 +51,7 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/api_gateway && 
-                export KUBECONFIG=/etc/kubernetes/admin.conf
+                sudo export KUBECONFIG=/etc/kubernetes/admin.conf
                 kubectl delete service api-gateway &&
                 kubectl delete deployment api-gateway &&
                 kubectl apply -f config.yaml"
