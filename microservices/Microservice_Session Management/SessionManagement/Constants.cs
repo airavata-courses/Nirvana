@@ -15,7 +15,7 @@ namespace SessionManagement
         public static String serverDatabaseName = "2fVTo72kDN";
 
         // kafka endpoint variables
-        public static String kafkaEndPoint = "kafka:9092";
+        public static String kafkaEndPoint = "kafka1:9092";
         public static String kafkaGroupId = "kafkagroupid";
         public static String kafkaConsumerTopics = "session_management_and_logging_service";
         public static String kafkaAPIGatewayTopic = "API_Consumer";
