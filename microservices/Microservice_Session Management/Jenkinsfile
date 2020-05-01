@@ -48,9 +48,8 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_session_management && 
-                export KUBECONFIG=/etc/kubernetes/admin.conf &&
-                kubectl delete service session-management &&
-                kubectl delete deployment session-management &&
+                sudo export KUBECONFIG=/etc/kubernetes/admin.conf &&
+                
                 kubectl apply -f config.yaml"
             '''    
             }
