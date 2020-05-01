@@ -52,7 +52,8 @@ pipeline {
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_model_execution && 
                 sudo -s export KUBECONFIG=/etc/kubernetes/admin.conf &&
-                
+                kubectl delete service model-execution &&
+                kubectl delete deployment model-execution &&
                 kubectl apply -f config.yaml"
             '''    
             }
