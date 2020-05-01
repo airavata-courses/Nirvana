@@ -56,9 +56,8 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_user_management && 
-                export KUBECONFIG=/etc/kubernetes/admin.conf &&
-                kubectl delete service user-management &&
-                kubectl delete deployment user-management &&
+                sudo -s export KUBECONFIG=/etc/kubernetes/admin.conf &&
+                
                 kubectl apply -f config.yaml"
             '''    
             }
