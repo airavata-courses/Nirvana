@@ -48,7 +48,7 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_session_management && 
-                sudo export KUBECONFIG=/etc/kubernetes/admin.conf
+                sudo -s export KUBECONFIG=/etc/kubernetes/admin.conf
                 
                 kubectl apply -f config.yaml"
             '''    
