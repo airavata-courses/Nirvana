@@ -45,9 +45,8 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/frontend && 
-                export KUBECONFIG=/etc/kubernetes/admin.conf &&
-                kubectl delete service react-frontend &&
-                kubectl delete deployment react-frontend &&
+                sudo -s export KUBECONFIG=/etc/kubernetes/admin.conf &&
+                
                 kubectl apply -f config.yaml"
             '''    
             }
