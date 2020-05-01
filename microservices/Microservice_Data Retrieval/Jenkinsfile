@@ -52,9 +52,8 @@ pipeline {
                 git pull &&
                 git checkout Kubernetes_files &&
                 cd yaml_files/microservice_data_retrieval && 
-                export KUBECONFIG=/etc/kubernetes/admin.conf
-                kubectl delete service data-retrieval-microservice &&
-                kubectl delete deployment data-retrieval-microservice &&
+                sudo export KUBECONFIG=/etc/kubernetes/admin.conf
+                
                 kubectl apply -f config.yaml"
             '''    
             }
