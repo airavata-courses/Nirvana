@@ -9,7 +9,7 @@ spec:
     port: 5000
     nodePort: 30010
  selector:
-  app: python
+  app: api-gateway
 ---
 apiVersion: apps/v1
 kind: Deployment
